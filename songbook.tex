@@ -1,5 +1,5 @@
 \documentclass[8pt,twoside]{extarticle}
-\usepackage[a5paper, margin=0.32in]{geometry}
+\usepackage[a5paper, margin=0.35in, includefoot]{geometry}
 \usepackage[utf8]{inputenc}
 
 \usepackage{titlesec}
@@ -9,8 +9,7 @@
 \titlespacing{\section}{20pt}{40pt}{20pt}
 
 \usepackage{verse}
-
-\setcounter{secnumdepth}{0} % sections are level 1
+\usepackage{tgpagella} % text only
 
 \usepackage{tocloft}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % for sections, if you really want! (It is default in report and book class (So you may not need it).
@@ -26,23 +25,30 @@
   \fancyhf[lef,rof]{\thepage}
 }
 
+\setcounter{secnumdepth}{0} % sections are level 1
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newenvironment{xverse}{
-	\penalty 10000
+	\interlinepenalty 10000
 	\begin{verse}
-	\parskip 4pt
+	\begin{minipage}{\linewidth}
+	\parskip 5pt
+	\vspace{-6pt}
+	% \begin{samepage}
 	}
 	{
+	\end{minipage}
+	% \end{samepage}
 	\end{verse}
 	\penalty 0
+	\vspace{-6pt}
 	}
-	\newenvironment{chorus}{\begin{xverse}\textbf{\emph{Chorus:}}\\}{\end{xverse}}
-	\newcommand{\chorusmark}{\begin{xverse}\textbf{\emph{(Chorus)}}\end{xverse}}
+\newenvironment{chorus}{\begin{xverse}\textbf{\emph{Chorus:}}\\}{\end{xverse}}
+\newcommand{\chorusmark}{\begin{xverse}\textbf{\emph{(Chorus)}}\end{xverse}}
 
 \title{UBES Songbook}
-\author{Prototype 0.1}
+\author{Prototype 0.3}
 \date{2019 - 2020}
 
 \begin{document}
@@ -55,6 +61,9 @@
 \center
 Special thanks to Alice Denning for collecting these songs - She did the hard
 work to make this happen.
+
+Thanks to Charlie Harding for an initial formatting pass and help with
+proofreading.
 \newpage
 
 \tableofcontents
@@ -121,7 +130,7 @@ For our souls in the ocean together will be \\
 
 \begin{xverse}
 Oh Santiana gained the day \\
-Away Santianna \\
+Away Santiana \\
 Now pulled the yan up the west they say \\
 Along the plains of Mexico \\
 \end{xverse}
@@ -340,7 +349,7 @@ And a long-forgotten lonely cairn of stones \\
 Three centuries thereafter \\
 I take passage overland \\
 In the footsteps of brave Kelso \\
-Where his "sea of flowers" began \\
+Where his “sea of flowers" began \\
 Watching cities rise before me \\
 Then behind me sink again \\
 This tardiest explorer \\
@@ -517,7 +526,7 @@ No, never no more \\
 \begin{xverse}
 I went into an alehouse I used to frequent \\
 And I told the landlady me money was spent \\
-I asked her for credit, she answered me "nay" \\
+I asked her for credit, she answered me “nay" \\
 "Such a custom as yours I can have every day"
 \end{xverse}
 
@@ -526,7 +535,7 @@ I asked her for credit, she answered me "nay" \\
 \begin{xverse}
 I then took from me pocket ten sovereigns bright \\
 And the landlady's eyes opened wide with delight \\
-She says "I have whiskeys and wines of the best" \\
+She says “I have whiskeys and wines of the best" \\
 And the words that you told me were only in jest \\
 \end{xverse}
 
@@ -658,7 +667,7 @@ Blood began to boil, temper I was losing \\
 Poor old Erin's Isle they began abusing \\
 "Hurrah me soul" says I, me Shillelagh I let fly \\
 Galway boys were by and saw I was a hobblin' \\
-With a "lo!" and "hurray!" they joined in the affray \\
+With a “lo!" and “hurray!" they joined in the affray \\
 Quickly cleared the way for the rocky road to Dublin \\
 \end{xverse}
 
@@ -671,13 +680,13 @@ Quickly cleared the way for the rocky road to Dublin \\
 It's as I was going over the Cork and Kerry Mountains \\
 I met with Captain Farrel and his money he was countin' \\
 I first produced my pistol and I then produced my rapier \\
-sayin', "stand and deliver for I am your bold deceiver: \\
+sayin', “stand and deliver for I am your bold deceiver: \\
 \end{xverse}
 \begin{chorus}
 mush a ring a ma dor um dah (4 claps) \\
 whack for the daddy Oh (2 claps) \\
 whack for the daddy Oh \\
-there's whiskey in the jar (yell "HEY" with a simultaneous clap) \\
+there's whiskey in the jar (yell “HEY" with a simultaneous clap) \\
 \end{chorus}
 \begin{xverse}
 I counted up my money and it made a pretty penny \\
@@ -729,7 +738,7 @@ When I was sick he ordered cat-a-nine, until I said that I felt fine, I'm stayin
 \chorusmark
 
 \begin{xverse}
-At 20 I manned that crows nest and captain said "I was the best", I'm staying right here, \\
+At 20 I manned that crows nest and captain said “I was the best", I'm staying right here, \\
 but I nearly lost my eyes to god, just looking out for old cape cod, I'm staying right here. \\
 \end{xverse}
 
@@ -811,6 +820,58 @@ Then gently rise and softly call \\
 "Good night and joy be to you all" \\
 Good night and joy be to you all \\
 \end{xverse}
+
+\section{Spanish Ladies}
+
+\begin{xverse}
+Farewell and adieu to you, Spanish Ladies \\
+Farewell and adieu to you, ladies of Spain; \\
+For we've received orders for to sail for old England \\
+But we hope in a short time to see you again \\
+\end{xverse}
+
+\begin{chorus}
+We will rant and we'll roar like true British sailors \\
+We'll rant and we'll roar all on the salt seas \\
+Until we strike soundings in the channel of old England; \\
+From Ushant to Scilly is thirty-five leagues \\
+\end{chorus}
+ 
+\begin{xverse}
+We hove our ship to with the wind from sou'west, boys \\
+We hove our ship to, deep soundings to take; \\
+'Twas forty-five fathoms, with a white sandy bottom \\
+So we squared our main yard and up channel did make \\
+\end{xverse}
+
+\chorusmark
+
+\begin{xverse}
+The first land we sighted was calléd the Dodman \\
+Next Rame Head off Plymouth, Start, Portland and Wight; \\
+We sailed by Beachy, by Fairlight and Dover \\
+And then we bore up for the South Foreland light \\
+\end{xverse}
+
+\chorusmark
+
+\begin{xverse}
+Then the signal was made for the grand fleet to anchor \\
+And all in the Downs that night for to lie; \\
+Let go your shank painter, let go your cat stopper \\
+Haul up your clewgarnets, let tacks and sheets fly! \\
+\end{xverse}
+
+\chorusmark
+
+\begin{xverse}
+Now let ev'ry man drink off his full bumper \\
+And let ev'ry man drink off his full bowl; \\
+We'll drink and be jolly and drown melancholy \\
+And here's to the health of each true-hearted soul \\
+\end{xverse}
+
+\chorusmark
 
 
 \section{Seven Drunken Nights}
@@ -1004,59 +1065,6 @@ We'd fire no guns, shed no tears \\
 But I'm a broken man on a Halifax pier \\
 The last of Barrett's Privateers \\
 \end{xverse}
-
-
-\section{Spanish Ladies}
-
-\begin{xverse}
-Farewell and adieu to you, Spanish Ladies \\
-Farewell and adieu to you, ladies of Spain; \\
-For we've received orders for to sail for old England \\
-But we hope in a short time to see you again \\
-\end{xverse}
-
-\begin{chorus}
-We will rant and we'll roar like true British sailors \\
-We'll rant and we'll roar all on the salt seas \\
-Until we strike soundings in the channel of old England; \\
-From Ushant to Scilly is thirty-five leagues \\
-\end{chorus}
- 
-\begin{xverse}
-We hove our ship to with the wind from sou'west, boys \\
-We hove our ship to, deep soundings to take; \\
-'Twas forty-five fathoms, with a white sandy bottom \\
-So we squared our main yard and up channel did make \\
-\end{xverse}
-
-\chorusmark
-
-\begin{xverse}
-The first land we sighted was calléd the Dodman \\
-Next Rame Head off Plymouth, Start, Portland and Wight; \\
-We sailed by Beachy, by Fairlight and Dover \\
-And then we bore up for the South Foreland light \\
-\end{xverse}
-
-\chorusmark
-
-\begin{xverse}
-Then the signal was made for the grand fleet to anchor \\
-And all in the Downs that night for to lie; \\
-Let go your shank painter, let go your cat stopper \\
-Haul up your clewgarnets, let tacks and sheets fly! \\
-\end{xverse}
-
-\chorusmark
-
-\begin{xverse}
-Now let ev'ry man drink off his full bumper \\
-And let ev'ry man drink off his full bowl; \\
-We'll drink and be jolly and drown melancholy \\
-And here's to the health of each true-hearted soul \\
-\end{xverse}
-
-\chorusmark
 
 
 \section{The Rattlin' Bog}
@@ -1416,6 +1424,7 @@ For we may or might never all meet here again \\
 \section{The Communist Marching Song}
 TODO
 
+\clearpage
 \pagenumbering{gobble}
-\clearpage \ifodd\value{page}\hbox{}\newpage\fi
+\ifodd\value{page}\hbox{}\newpage\fi
 \end{document}
