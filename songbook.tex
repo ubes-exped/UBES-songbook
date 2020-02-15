@@ -1,18 +1,29 @@
-\documentclass[8pt,twoside]{extarticle}
-\usepackage[a5paper, margin=0.35in, includefoot]{geometry}
+\documentclass[9pt,twoside]{extarticle}
+\usepackage[a5paper, vmargin=0.35in, hmargin=0.65in, includefoot]{geometry}
 \usepackage[utf8]{inputenc}
+
+\usepackage[skip=12pt]{parskip}
 
 \usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
-\titleformat{\section}
-{\normalfont\fontsize{12}{18}\bfseries\filcenter}{\thesection}{1em}{}
-\titlespacing{\section}{20pt}{40pt}{20pt}
+\titleformat{\section}{\normalfont\fontsize{12}{18}\bfseries\filcenter}{\thesection}{0em}{}
+\titlespacing{\section}{0pt}{40pt}{20pt}
 
-\usepackage{verse}
+\titleformat{\subsection}{\normalfont\fontsize{10}{14}\bfseries\filcenter}{\thesubsection}{0em}{}
+\titlespacing{\section}{0pt}{20pt}{20pt}
+
+\usepackage{ifthen}
+\usepackage{xcolor}
+
 \usepackage{tgpagella} % text only
 
+\usepackage{verse}
+\setlength{\leftmargini}{0em}
+
 \usepackage{tocloft}
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % for sections, if you really want! (It is default in report and book class (So you may not need it).
+\renewcommand\cftsecfont{\mdseries}
+\usepackage{hyperref}
+% \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % for sections, if you really want! (It is default in report and book class (So you may not need it).
 
 \usepackage{fancyhdr}
 \fancyhf{} % clear all header and footers
@@ -30,1397 +41,1210 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newenvironment{xverse}{
-	\interlinepenalty 10000
 	\begin{verse}
-	\begin{minipage}{\linewidth}
-	\parskip 5pt
-	\vspace{-6pt}
-	% \begin{samepage}
+	\fontsize{8.5}{10.5}\selectfont
 	}
 	{
-	\end{minipage}
-	% \end{samepage}
 	\end{verse}
 	\penalty 0
-	\vspace{-6pt}
-	}
-\newenvironment{chorus}{\begin{xverse}\textbf{\emph{Chorus:}}\\}{\end{xverse}}
-\newcommand{\chorusmark}{\begin{xverse}\textbf{\emph{(Chorus)}}\end{xverse}}
+}
+\newcommand{\chorusdef}{\textbf{\emph{Chorus:}}\\*}
+\setlength{\stanzaskip}{10pt}
+\newcommand{\chorusmark}[1][1]{%
+\vspace{-0.5\stanzaskip}%
+\textbf{\emph{Chorus \ifthenelse{\equal{#1}{1}}{}{$\times$ #1}}}%
+\vspace{-0.5\stanzaskip}%
+}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
 
 \title{UBES Songbook}
 \author{Prototype 0.3}
 \date{2019 - 2020}
 
 \begin{document}
+\raggedbottom
 \pagenumbering{gobble}
 
 \maketitle
 \newpage
 
-\section*{Acknowledgements}
-\center
-Special thanks to Alice Denning for collecting these songs - She did the hard
+\section*{Foreword}
+
+\subsection*{Acknowledgements}
+
+\begin{center}
+Special thanks to Alice Denning for collecting these songs -- she did the hard
 work to make this happen.
 
 Thanks to Charlie Harding for an initial formatting pass and help with
 proofreading.
+\end{center}
+
+\subsection*{Music}
+
+TODO
+
 \newpage
 
 \tableofcontents
 
-\section{Music}
+\sectionbreak
 \pagenumbering{arabic}
-TODO
-
 
 \section{Bones in the Ocean}
-
 \begin{xverse}
-Oh, I bid farewell to the port and the land \\
-And I paddle away from brave England’s white sands \\
-To search for my long ago forgotten friends \\
-To search for the place I hear all sailors’ end \\
-As the souls of the dead fill the space of my mind \\
-I’ll search without sleeping till peace I can find \\
-I fear not the weather, I fear not the sea \\
-I remember the fallen, do they think of me? \\
-When their bones in the ocean forever will be \\
-\end{xverse}
+Oh, I bid farewell to the port and the land \\*
+And I paddle away from brave England’s white sands \\*
+To search for my long ago forgotten friends \\*
+To search for the place I hear all sailors’ end \\*
+As the souls of the dead fill the space of my mind \\*
+I’ll search without sleeping till peace I can find \\*
+I fear not the weather, I fear not the sea \\*
+I remember the fallen, do they think of me? \\*
+When their bones in the ocean forever will be
 
-\begin{xverse}
-Plot a course thro’ the night to a place I once knew \\
-To a place where my hope died along with my crew \\
-So I swallow my grief and face life’s final test \\
-To find promise of peace and the solace of rest \\
-As the songs of the dead fill the space of my ears \\
-Their laughter like children, their beckoning cheers \\
-My heart longs to join them, sing songs of the sea \\
-I remember the fallen, do they think of me? \\
-When their bones in the ocean forever will be \\
-\end{xverse}
+Plot a course thro’ the night to a place I once knew \\*
+To a place where my hope died along with my crew \\*
+So I swallow my grief and face life’s final test \\*
+To find promise of peace and the solace of rest \\*
+As the songs of the dead fill the space of my ears \\*
+Their laughter like children, their beckoning cheers \\*
+My heart longs to join them, sing songs of the sea \\*
+I remember the fallen, do they think of me? \\*
+When their bones in the ocean forever will be
 
-\begin{xverse}
-When at last before my ghostly shipmates I stand \\
-I shed a small tear for my home upon land \\
-Though their eyes speak of depths filled with struggle and strife \\
-Their smiles below say I don’t owe them my life \\
-As the souls of the dead fill the space of my eyes \\
-And my boat listed over and tried to capsize. \\
-I’m this far from drowning, this far from the sea, \\
-I remember the living do they think of me? \\
-When my bones in the ocean forever will be. \\
-\end{xverse}
+When at last before my ghostly shipmates I stand \\*
+I shed a small tear for my home upon land \\*
+Though their eyes speak of depths filled with struggle and strife \\*
+Their smiles below say I don’t owe them my life \\*
+As the souls of the dead fill the space of my eyes \\*
+And my boat listed over and tried to capsize. \\*
+I’m this far from drowning, this far from the sea, \\*
+I remember the living do they think of me? \\*
+When my bones in the ocean forever will be.
 
-\begin{xverse}
-Now that I’m staring down at the darkest abyss \\
-I’m not sure what I want but I don’t think it’s this \\
-As my comrades call to stand fast and forge on \\
-I make sail for the dawn till the darkness has gone \\
-As the souls of the dead live fore’er in my mind \\
-As I live all the years that they left me behind \\
-I’ll stay on the shore but still gaze at the sea \\
-I remember the fallen and they think of me \\
-For our souls in the ocean together will be. \\
-I remember the fallen and they think of me, \\
-For our souls in the ocean together will be \\
+Now that I’m staring down at the darkest abyss \\*
+I’m not sure what I want but I don’t think it’s this \\*
+As my comrades call to stand fast and forge on \\*
+I make sail for the dawn till the darkness has gone \\*
+As the souls of the dead live fore’er in my mind \\*
+As I live all the years that they left me behind \\*
+I’ll stay on the shore but still gaze at the sea \\*
+I remember the fallen and they think of me \\*
+For our souls in the ocean together will be. \\*
+I remember the fallen and they think of me, \\*
+For our souls in the ocean together will be
 \end{xverse}
-
 
 \section{Santiana}
-
 \begin{xverse}
-Oh Santiana gained the day \\
-Away Santiana \\
-Now pulled the yan up the west they say \\
-Along the plains of Mexico \\
-\end{xverse}
+Oh Santiana gained the day \\*
+Away Santiana \\*
+Now pulled the yan up the west they say \\*
+Along the plains of Mexico
 
-\begin{chorus}
-Well heave her up and away we’ll go \\
-Away Santiana \\
-Heave her up and away we’ll go \\
-Along the plains of Mexico \\
-\end{chorus}
+\chorusdef
+Well heave her up and away we’ll go \\*
+Away Santiana \\*
+Heave her up and away we’ll go \\*
+Along the plains of Mexico
 
-\begin{xverse}
-She’s a fast clipper ship and a bully good crew \\
-Away Santiana \\
-And an old salty Yank for a captain too \\
-Along the plains of Mexico \\
-\end{xverse}
+She’s a fast clipper ship and a bully good crew \\*
+Away Santiana \\*
+And an old salty Yank for a captain too \\*
+Along the plains of Mexico
 
 \chorusmark
 
-\begin{xverse}
-Santiana fought for gold \\
-Away Santiana \\
-Around Cape Horn through the ice and snow \\
-Along the plains of Mexico \\
-\end{xverse}
+Santiana fought for gold \\*
+Away Santiana \\*
+Around Cape Horn through the ice and snow \\*
+Along the plains of Mexico
 
 \chorusmark
 
-\begin{xverse}
-Twas on the field of Molly-Del-Rey \\
-Away Santiana \\
-Well both his legs got blown away \\
-Along the plains of Mexico \\
-\end{xverse}
+’Twas on the field of Molly-Del-Rey \\*
+Away Santiana \\*
+Well both his legs got blown away \\*
+Along the plains of Mexico
 
 \chorusmark
 
-\begin{xverse}
-It was a fierce and bitter strife \\
-Away Santiana \\
-The general Taylor took his life \\
-Along the plains of Mexico \\
-\end{xverse}
+It was a fierce and bitter strife \\*
+Away Santiana \\*
+The general Taylor took his life \\*
+Along the plains of Mexico
 
 \chorusmark
 
-\begin{xverse}
-Santiana now we mourn \\
-Away Santiana \\
-We left him buried off Cape Horn \\
-Along the plains of Mexico \\
+Santiana now we mourn \\*
+Away Santiana \\*
+We left him buried off Cape Horn \\*
+Along the plains of Mexico
 \end{xverse}
 
 
 \section{Loch Lomond}
 
 \begin{xverse}
-By yon bonnie banks and by yon bonnie braes, \\
-Where the sun shines bright on Loch Lomond, \\
-Where me and my true love were ever wont to gae, \\
-In the bonnie, bonnie banks of Loch Lomond. \\
-\end{xverse}
+By yon bonnie banks and by yon bonnie braes, \\*
+Where the sun shines bright on Loch Lomond, \\*
+Where me and my true love were ever wont to gae, \\*
+In the bonnie, bonnie banks of Loch Lomond.
 
-\begin{chorus}
-O ye’ll take the high road, and I’ll take the low road, \\
-And I’ll be in Scotland afore ye, \\
-Where me and my true love will never meet again, \\
-On the bonnie, bonnie banks of Loch Lomond. \\
-\end{chorus}
+\chorusdef
+O ye’ll take the high road, and I’ll take the low road, \\*
+And I’ll be in Scotland afore ye, \\*
+Where me and my true love will never meet again, \\*
+On the bonnie, bonnie banks of Loch Lomond.
 
-\begin{xverse}
-‘Twas there that we parted, in by yon shady glen, \\
-On the steep, steep side of Ben Lomond, \\
-Where, deep in purple hue, the highland hills we view, \\
-And the moon coming out in the gloaming. \\
-\end{xverse}
+’Twas there that we parted, in by yon shady glen, \\*
+On the steep, steep side of Ben Lomond, \\*
+Where, deep in purple hue, the highland hills we view, \\*
+And the moon coming out in the gloaming.
 
 \chorusmark
 
-\begin{xverse}
-The wee birdies sing and the wild flowers spring, \\
-And in sunshine waters lie sleeping. \\
-But the broken heart it kens, nae second spring again, \\
-Though the waeful may cease frae their greeting. \\
-\end{xverse}
+The wee birdies sing and the wild flowers spring, \\*
+And in sunshine waters lie sleeping. \\*
+But the broken heart it kens, nae second spring again, \\*
+Though the waeful may cease frae their greeting.
 
 \chorusmark
-
+\end{xverse}
 
 \section{Beeswing}
 \begin{xverse}
-I was 18 when I came to town they called it the summer of love \\
-Burning babies burning flags the hawks against the doves \\
-I took a job at the steaming way down on Caltrim St, \\
-Fell in love with a laundry girl that was workin’ next to me. \\
-Brown hair zig zagged across her face and a look of half surprise, \\
-Like a fox caught in the headlights there was animal in her eyes, \\
-She said to me can’t you see I’m not the factory kind, \\
-If you don’t take me out of here I’ll surely lose my mind \\
-\end{xverse}
+I was 18 when I came to town they called it the summer of love \\*
+Burning babies burning flags the hawks against the doves \\*
+I took a job at the steaming way down on Caltrim St, \\*
+Fell in love with a laundry girl that was workin’ next to me. \\*
+Brown hair zig zagged across her face and a look of half surprise, \\*
+Like a fox caught in the headlights there was animal in her eyes, \\*
+She said to me can’t you see I’m not the factory kind, \\*
+If you don’t take me out of here I’ll surely lose my mind
 
-\begin{chorus}
-She was a rare thing fine as a bee’s wing \\
-So fine a breath of wind might blow her away \\
-She was a lost child, she was runnin’ wild (she said) \\
-So long as there’s no price on love I’ll stay \\
-You wouldn’t want me any other way. \\
-\end{chorus}
+\chorusdef
+She was a rare thing fine as a bee’s wing \\*
+So fine a breath of wind might blow her away \\*
+She was a lost child, she was runnin’ wild (she said) \\*
+So long as there’s no price on love I’ll stay \\*
+You wouldn’t want me any other way.
 
-\begin{xverse}
-We busked around the market towns fruit pickin’ down in Kent \\
-We could tinker pots and pans or knives wherever we went. \\
-We were campin down the Gower one time, the work was mighty good. \\
-She wouldn’t wait for the harvest, I thought we should. \\
-I said to her we’ll settle down, get a few acres dug, \\
-A fire burning in the hearth and babbies on the rug. \\
-She said Oh man you foolish man that surely sounds like hell, \\
-You might be lord of half the world,You’ll not own me as well \\
-\end{xverse}
+We busked around the market towns fruit pickin’ down in Kent \\*
+We could tinker pots and pans or knives wherever we went. \\*
+We were campin down the Gower one time, the work was mighty good. \\*
+She wouldn’t wait for the harvest, I thought we should. \\*
+I said to her we’ll settle down, get a few acres dug, \\*
+A fire burning in the hearth and babbies on the rug. \\*
+She said Oh man you foolish man that surely sounds like hell, \\*
+You might be lord of half the world,You’ll not own me as well
 
 \chorusmark
 
-\begin{xverse}
-We were drinking more in those days our tempers reached a pitch \\
-Like a fool I let her run away when she took the rambling itch. \\
-Last I heard she was living rough back on the Derby beat \\
-A bottle of White Horse in her pocket, a Wolfhound at her feet \\
+We were drinking more in those days our tempers reached a pitch \\*
+Like a fool I let her run away when she took the rambling itch. \\*
+Last I heard she was living rough back on the Derby beat \\*
+A bottle of White Horse in her pocket, a Wolfhound at her feet
+
+They say that she got married once to a man called Romany Brown \\*
+Even a gypsy caravan was too much like settlin’ down \\*
+They say her rose has faded, rough weather and hard booze, \\*
+Maybe thats the price you pay for the chains that you refuse
+
+She was a rare thing, fine as a bee’s wing \\*
+I miss her more than ever words can say \\*
+If I could just taste all of her wildness now \\*
+If I could hold her in my arms today… \\*
+I wouldn’t want her any other way
 \end{xverse}
 
-\begin{xverse}
-They say that she got married once to a man called Romany Brown \\
-Even a gypsy caravan was too much like settlin’ down \\
-They say her rose has faded, rough weather and hard booze, \\
-Maybe thats the price you pay for the chains that you refuse \\
-\end{xverse}
+\section{Leave her, Johnny}
 
 \begin{xverse}
-She was a rare thing, fine as a bee’s wing \\
-I miss her more than ever words can say \\
-If I could just taste all of her wildness now \\
-If I could hold her in my arms today… \\
-I wouldn’t want her any other way \\
-\end{xverse}
+I thought I heard the Old Man say: \\*
+“Leave her, Johnny, leave her.” \\*
+Tomorrow you will get your pay \\*
+And it’s time for us to leave her
 
+\chorusdef
+Leave her, Johnny, leave her! \\*
+Oh, leave her, Johnny, leave her! \\*
+For the voyage is long and the winds don’t blow \\*
+And it’s time for us to leave her
 
-\section{Leave her Johnny leave her}
-
-\begin{xverse}
-I thought I heard the Old Man say: \\
-“Leave her, Johnny, leave her.” \\
-Tomorrow you will get your pay \\
-And it’s time for us to leave her \\
-\end{xverse}
-
-\begin{chorus}
-Leave her, Johnny, leave her! \\
-Oh, leave her, Johnny, leave her! \\
-For the voyage is long and the winds don’t blow \\
-And it’s time for us to leave her \\
-\end{chorus}
-
-\begin{xverse}
-Oh, the wind was foul and the sea ran high \\
-“Leave her, Johnny, leave her!” \\
-She shipped it green and none went by \\
-And it’s time for us to leave her \\
-\end{xverse}
+Oh, the wind was foul and the sea ran high \\*
+“Leave her, Johnny, leave her!” \\*
+She shipped it green and none went by \\*
+And it’s time for us to leave her
 
 \chorusmark
 
-\begin{xverse}
-I hate to sail on this rotten tub \\
-“Leave her, Johnny, leave her!” \\
-No grog allowed and rotten grub \\
-And it’s time for us to leave her \\
-\end{xverse}
+I hate to sail on this rotten tub \\*
+“Leave her, Johnny, leave her!” \\*
+No grog allowed and rotten grub \\*
+And it’s time for us to leave her
 
 \chorusmark
 
-\begin{xverse}
-We swear by rote for want of more \\
-“Leave her, Johnny, leave her!” \\
-But now we’re through so we’ll go on shore \\
-And it’s time for us to leave her \\
-\end{xverse}
+We swear by rote for want of more \\*
+“Leave her, Johnny, leave her!” \\*
+But now we’re through so we’ll go on shore \\*
+And it’s time for us to leave her
 
 \chorusmark
-
+\end{xverse}
 
 \section{Northwest Passage}
 
-\begin{chorus}
-Ah, for just one time \\
-I would take the Northwest Passage \\
-To find the hand of Franklin \\
-Reaching for the Beaufort Sea \\
-Tracing one warm line \\
-Through a land so wild and savage \\
-And make a Northwest Passage to the sea \\
-Westward from the Davis Strait \\
-\end{chorus}
-
 \begin{xverse}
-’Tis there ’twas said to lie \\
-The sea route to the Orient \\
-For which so many died \\
-Seeking gold and glory, \\
-Leaving weathered, broken bones \\
-And a long-forgotten lonely cairn of stones \\
-\end{xverse}
+\chorusdef
+Ah, for just one time \\*
+I would take the Northwest Passage \\*
+To find the hand of Franklin \\*
+Reaching for the Beaufort Sea \\*
+Tracing one warm line \\*
+Through a land so wild and savage \\*
+And make a Northwest Passage to the sea \\*
+Westward from the Davis Strait
+
+’Tis there ’twas said to lie \\*
+The sea route to the Orient \\*
+For which so many died \\*
+Seeking gold and glory, \\*
+Leaving weathered, broken bones \\*
+And a long-forgotten lonely cairn of stones
 
 \chorusmark
 
-\begin{xverse}
-Three centuries thereafter \\
-I take passage overland \\
-In the footsteps of brave Kelso \\
-Where his “sea of flowers” began \\
-Watching cities rise before me \\
-Then behind me sink again \\
-This tardiest explorer \\
-Driving hard across the plain \\
-\end{xverse}
+Three centuries thereafter \\*
+I take passage overland \\*
+In the footsteps of brave Kelso \\*
+Where his “sea of flowers” began \\*
+Watching cities rise before me \\*
+Then behind me sink again \\*
+This tardiest explorer \\*
+Driving hard across the plain
 
 \chorusmark
 
-\begin{xverse}
-And through the night, behind the wheel \\
-The mileage clicking west \\
-I think upon Mackenzie, \\
-David Thompson and the rest \\
-Who cracked the mountain ramparts \\
-And did show a path for me \\
-To race the roaring Fraser to the sea \\
-\end{xverse}
+And through the night, behind the wheel \\*
+The mileage clicking west \\*
+I think upon Mackenzie, \\*
+David Thompson and the rest \\*
+Who cracked the mountain ramparts \\*
+And did show a path for me \\*
+To race the roaring Fraser to the sea
 
 \chorusmark
 
-\begin{xverse}
-How then am I so different \\
-From the first men through this way? \\
-Like them, I left a settled life \\
-I threw it all away \\
-To seek a Northwest Passage \\
-At the call of many men \\
-To find there but the road back home again \\
-\end{xverse}
+How then am I so different \\*
+From the first men through this way? \\*
+Like them, I left a settled life \\*
+I threw it all away \\*
+To seek a Northwest Passage \\*
+At the call of many men \\*
+To find there but the road back home again
 
 \chorusmark
-
+\end{xverse}
 
 \section{The Mingulay Boat Song}
 
-\begin{chorus}
-Heel ya ho, boys, let her go, boys \\
-Heave her head round to the weather \\
-Heel ya ho, boys, let her go, boys \\
-Sailing homeward to Mingulay \\
-\end{chorus}
-
 \begin{xverse}
-What care we though white the Minch is \\
-What care we boys the wind and weather \\
-When we know that, every inch is \\
-Closer homeward to Mingulay \\
-\end{xverse}
+\chorusdef
+Heel ya ho, boys, let her go, boys \\*
+Heave her head round to the weather \\*
+Heel ya ho, boys, let her go, boys \\*
+Sailing homeward to Mingulay
+
+What care we though white the Minch is \\*
+What care we boys the wind and weather \\*
+When we know that, every inch is \\*
+Closer homeward to Mingulay
 
 \chorusmark
 
-\begin{xverse}
-Wives are waiting by the pierhead \\
-Gazing seaward from the heather \\
-Heave ahead round and we’ll anchor \\
-Ere the sun sets on Mingulay \\
-\end{xverse}
+Wives are waiting by the pierhead \\*
+Gazing seaward from the heather \\*
+Heave ahead round and we’ll anchor \\*
+Ere the sun sets on Mingulay
 
-\begin{xverse}
-Heel ya ho, boys, let her go, boys \\
-Heave her head round to the weather \\
-Heel ya ho, boys, let her go, boys \\
-Sailing homeward to Mingulay \\
-Sailing homeward to Mingulay \\
+Heel ya ho, boys, let her go, boys \\*
+Heave her head round to the weather \\*
+Heel ya ho, boys, let her go, boys \\*
+Sailing homeward to Mingulay \\*
+Sailing homeward to Mingulay
 \end{xverse}
 
 
 \section{The Skye Boat Song}
 
-\begin{chorus}
-Speed bonnie boat like a bird on the wing \\
-Onward the sailors cry. \\
-Carry the lad that’s born to be king \\
-Over the sea to Skye \\
-\end{chorus}
-
 \begin{xverse}
-Loud the wind howls \\
-Loud the waves roar \\
-Thunderclaps rend the air \\
-Baffled our foes \\
-Stand by the shore \\
-Follow they will not dare \\
-\end{xverse}
+\chorusdef
+Speed bonnie boat like a bird on the wing \\*
+Onward the sailors cry. \\*
+Carry the lad that’s born to be king \\*
+Over the sea to Skye
+
+Loud the wind howls \\*
+Loud the waves roar \\*
+Thunderclaps rend the air \\*
+Baffled our foes \\*
+Stand by the shore \\*
+Follow they will not dare
 
 \chorusmark
 
-\begin{xverse}
-Many’s the lad fought on that day \\
-Well the claymore did wield \\
-When the night came \\
-Silently lain \\
-Dead on Colloden field \\
-\end{xverse}
+Many’s the lad fought on that day \\*
+Well the claymore did wield \\*
+When the night came \\*
+Silently lain \\*
+Dead on Colloden field
 
 \chorusmark
 
-\begin{xverse}
-Though the waves heave \\
-Soft will ye sleep \\
-Ocean’s a royal bed \\
-Rocked in the deep \\
-Flora will keep \\
-Watch by your weary head \\
-\end{xverse}
+Though the waves heave \\*
+Soft will ye sleep \\*
+Ocean’s a royal bed \\*
+Rocked in the deep \\*
+Flora will keep \\*
+Watch by your weary head
 
 \chorusmark
-
+\end{xverse}
 
 \section{Wild Mountain Thyme}
 
 \begin{xverse}
-O the summer time has come \\
-And the trees are sweetly bloomin’ \\
-And the wild mountain thyme \\
-Grows around the bloomin’ heather \\
-Will ye go, Lassie, go? \\
-\end{xverse}
+O the summer time has come \\*
+And the trees are sweetly bloomin’ \\*
+And the wild mountain thyme \\*
+Grows around the bloomin’ heather \\*
+Will ye go, Lassie, go?
 
-\begin{chorus}
-And we’ll all go together \\
-To pull wild mountain thyme \\
-All around the bloomin’ heather \\
-Will ye go, Lassie, go? \\
-\end{chorus}
+\chorusdef
+And we’ll all go together \\*
+To pull wild mountain thyme \\*
+All around the bloomin’ heather \\*
+Will ye go, Lassie, go?
 
-\begin{xverse}
-I will build my love a bower \\
-By yon cool crystal fountain \\
-And round it I will pile \\
-All the wild flowers o’ the mountain \\
-Will ye go, Lassie, go? \\
-\end{xverse}
+I will build my love a bower \\*
+By yon cool crystal fountain \\*
+And round it I will pile \\*
+All the wild flowers o’ the mountain \\*
+Will ye go, Lassie, go?
 
 \chorusmark
 
-\begin{xverse}
-I will range through the wilds \\
-And the deep glen sae dreamy \\
-And return wi’ their spoils \\
-Tae the bower o’ my dearie \\
-Will ye go, Lassie, go? \\
-\end{xverse}
+I will range through the wilds \\*
+And the deep glen sae dreamy \\*
+And return wi’ their spoils \\*
+Tae the bower o’ my dearie \\*
+Will ye go, Lassie, go?
 
 \chorusmark
 
-\begin{xverse}
-If my true love she’ll not come \\
-Then I’ll surely find another \\
-To pull wild mountain thyme \\
-All around the bloomin’ heather \\
-Will ye go, Lassie, go? \\
-\end{xverse}
+If my true love she’ll not come \\*
+Then I’ll surely find another \\*
+To pull wild mountain thyme \\*
+All around the bloomin’ heather \\*
+Will ye go, Lassie, go?
 
 \chorusmark
-
+\end{xverse}
 
 \section{The Wild Rover}
 
 \begin{xverse}
-I’ve been a wild rover for many’s the year \\
-And I’ve spent all me money on whiskey and beer \\
-But now I’m returning with gold in great store \\
-And I never will play the wild rover no more \\
-\end{xverse}
+I’ve been a wild rover for many’s the year \\*
+And I’ve spent all me money on whiskey and beer \\*
+But now I’m returning with gold in great store \\*
+And I never will play the wild rover no more
 
-\begin{chorus}
-And it’s no, nay, never \\
-No, nay, never no more \\
-Will I play the wild rover \\
-No, never no more \\
-\end{chorus}
+\chorusdef
+And it’s no, nay, never \\*
+No, nay, never no more \\*
+Will I play the wild rover \\*
+No, never no more
 
-\begin{xverse}
-I went into an alehouse I used to frequent \\
-And I told the landlady me money was spent \\
-I asked her for credit, she answered me “nay” \\
+I went into an alehouse I used to frequent \\*
+And I told the landlady me money was spent \\*
+I asked her for credit, she answered me “nay” \\*
 “Such a custom as yours I can have every day”
+
+\chorusmark
+
+I then took from me pocket ten sovereigns bright \\*
+And the landlady’s eyes opened wide with delight \\*
+She says “I have whiskeys and wines of the best” \\*
+And the words that you told me were only in jest
+
+\chorusmark
+
+I’ll go home to my parents, confess what I’d done \\*
+And I’ll ask them to pardon their prodigal son \\*
+And when they’ve caressed me as ofttimes before \\*
+I never will play the wild rover no more
+
+\chorusmark[2]
 \end{xverse}
-
-\chorusmark
-
-\begin{xverse}
-I then took from me pocket ten sovereigns bright \\
-And the landlady’s eyes opened wide with delight \\
-She says “I have whiskeys and wines of the best” \\
-And the words that you told me were only in jest \\
-\end{xverse}
-
-\chorusmark
-
-\begin{xverse}
-I’ll go home to my parents, confess what I’d done \\
-And I’ll ask them to pardon their prodigal son \\
-And when they’ve caressed me as ofttimes before \\
-I never will play the wild rover no more \\
-\end{xverse}
-
-\chorusmark
-
-\chorusmark
-
 
 \section{Caledonia}
 
 \begin{xverse}
-I don’t know if you can see \\
-the changes that have come over me \\
-In these last few days I’ve been afraid \\
-that I might drift away \\
-So I’ve been telling old stories, singing songs \\
-that make me think about where I come from \\
-And that’s the reason why I seem so far away today \\
-\end{xverse}
+I don’t know if you can see \\*
+the changes that have come over me \\*
+In these last few days I’ve been afraid \\*
+that I might drift away \\*
+So I’ve been telling old stories, singing songs \\*
+that make me think about where I come from \\*
+And that’s the reason why I seem so far away today
 
-\begin{chorus}
-Oh and let me tell you that I love you \\
-and I think about you all the time \\
-Caledonia, you’re calling me and now I’m going home \\
-If I should become a stranger \\
-you know that it would make me more than sad \\
-Caledonia’s been everything I’ve ever had \\
-\end{chorus}
+\chorusdef
+Oh and let me tell you that I love you \\*
+and I think about you all the time \\*
+Caledonia, you’re calling me and now I’m going home \\*
+If I should become a stranger \\*
+you know that it would make me more than sad \\*
+Caledonia’s been everything I’ve ever had
 
-\begin{xverse}
-Oh and I have moved on and I’ve kept on moving \\
-proved the points that I needed proving \\
-Lost the friends that I needed losing \\
-found others on the way \\
-Oh and I have tried and I’ve kept on trying \\
-stolen dreams, yes there’s no denying \\
-I have travelled hard, with my conscience flying, \\
-somewhere with the wind \\
-\end{xverse}
+Oh and I have moved on and I’ve kept on moving \\*
+proved the points that I needed proving \\*
+Lost the friends that I needed losing \\*
+found others on the way \\*
+Oh and I have tried and I’ve kept on trying \\*
+stolen dreams, yes there’s no denying \\*
+I have travelled hard, with my conscience flying, \\*
+somewhere with the wind
 
 \chorusmark
 
-\begin{xverse}
-Now I’m sitting here before the fire \\
-the empty room, the forest choir \\
-The flames that couldn’t get any higher \\
-they’ve withered now they’ve gone \\
-But I’m steady thinking, my way is clear \\
-and I know what I will do tomorrow \\
-When the hands have shaken and the kisses flowed \\
-then I will disappear \\
-\end{xverse}
+Now I’m sitting here before the fire \\*
+the empty room, the forest choir \\*
+The flames that couldn’t get any higher \\*
+they’ve withered now they’ve gone \\*
+But I’m steady thinking, my way is clear \\*
+and I know what I will do tomorrow \\*
+When the hands have shaken and the kisses flowed \\*
+then I will disappear
 
 \chorusmark
-
+\end{xverse}
 
 \section{Rocky Road to Dublin}
 
 \begin{xverse}
-While in the merry month of May, now from me home I started \\
-Left, the girls of Tuam were nearly broken-hearted \\
-Saluted father dear, kissed me darling mother \\
-Drank a pint of beer, me grief and tears to smother \\
-Then off to reap the corn and leave where I was born \\
-Cut a stout, black thorn to banish ghosts and goblins \\
-A brand-new pair of brogues to rattle over the bogs \\
-And frighten all the dogs on the rocky road to Dublin \\
-\end{xverse}
+While in the merry month of May, now from me home I started \\*
+Left, the girls of Tuam were nearly broken-hearted \\*
+Saluted father dear, kissed me darling mother \\*
+Drank a pint of beer, me grief and tears to smother \\*
+Then off to reap the corn and leave where I was born \\*
+Cut a stout, black thorn to banish ghosts and goblins \\*
+A brand-new pair of brogues to rattle over the bogs \\*
+And frighten all the dogs on the rocky road to Dublin
 
-\begin{chorus}
-One, two, three, four, five \\
-Hunt the hare and turn her down the rocky road \\
-And all the way to Dublin, whack, follol de-dah \\
-\end{chorus}
+\chorusdef
+One, two, three, four, five \\*
+Hunt the hare and turn her down the rocky road \\*
+And all the way to Dublin, whack, follol de-dah
 
-\begin{xverse}
-In Mullingar that night I rested limbs so weary \\
-Started by daylight next morning blithe and early \\
-Took a drop of pure to keep me heart from shrinking \\
-That’s the Paddy’s cure whene’er he’s on for drinking \\
-To hear the lassies smile, laughing all the while \\
-At me curious style, ’twould set your heart a-bubblin’ \\
-They asked me was I hired and wages I required to lay \\
-Was almost tired of the rocky road to Dublin \\
-\end{xverse}
+In Mullingar that night I rested limbs so weary \\*
+Started by daylight next morning blithe and early \\*
+Took a drop of pure to keep me heart from shrinking \\*
+That’s the Paddy’s cure whene’er he’s on for drinking \\*
+To hear the lassies smile, laughing all the while \\*
+At me curious style, ’twould set your heart a-bubblin’ \\*
+They asked me was I hired and wages I required to lay \\*
+Was almost tired of the rocky road to Dublin
 
 \chorusmark
 
-\begin{xverse}
- 
-In Dublin next arrived, I thought it such a pity \\
-To be so soon deprived a view of that fine city \\
-So then I took a stroll, all among the quality \\
-Bundle it was stolen, in a neat locality \\
-Something crossed me mind, when I looked behind \\
-No bundle could I find upon me stick a-wobblin’ \\
-’Quiring after the rogue, said me Connaught brogue \\
-It wasn’t much in vogue on the rocky road to Dublin \\
-\end{xverse}
+In Dublin next arrived, I thought it such a pity \\*
+To be so soon deprived a view of that fine city \\*
+So then I took a stroll, all among the quality \\*
+Bundle it was stolen, in a neat locality \\*
+Something crossed me mind, when I looked behind \\*
+No bundle could I find upon me stick a-wobblin’ \\*
+’Quiring after the rogue, said me Connaught brogue \\*
+It wasn’t much in vogue on the rocky road to Dublin
 
 \chorusmark
 
-\begin{xverse}
-From there I got away, me spirits never falling \\
-Landed on the quay, just as the ship was sailing \\
-Captain at me roared, said that no room had he \\
-When I jumped aboard, a cabin found for Paddy \\
-Down among the pigs, did some hearty rigs \\
-I played some hearty jigs, the water round me bubbling \\
-When off Holyhead I wished meself was dead \\
-Or better for instead on the rocky road to Dublin \\
-\end{xverse}
+From there I got away, me spirits never falling \\*
+Landed on the quay, just as the ship was sailing \\*
+Captain at me roared, said that no room had he \\*
+When I jumped aboard, a cabin found for Paddy \\*
+Down among the pigs, did some hearty rigs \\*
+I played some hearty jigs, the water round me bubbling \\*
+When off Holyhead I wished meself was dead \\*
+Or better for instead on the rocky road to Dublin
 
 \chorusmark
 
-\begin{xverse}
-The boys of Liverpool, when we safely landed \\
-Called meself a fool, I could no longer stand it \\
-Blood began to boil, temper I was losing \\
-Poor old Erin’s Isle they began abusing \\
-“Hurrah me soul” says I, me Shillelagh I let fly \\
-Galway boys were by and saw I was a hobblin’ \\
-With a “lo!” and “hurray!” they joined in the affray \\
-Quickly cleared the way for the rocky road to Dublin \\
+The boys of Liverpool, when we safely landed \\*
+Called meself a fool, I could no longer stand it \\*
+Blood began to boil, temper I was losing \\*
+Poor old Erin’s Isle they began abusing \\*
+“Hurrah me soul” says I, me Shillelagh I let fly \\*
+Galway boys were by and saw I was a hobblin’ \\*
+With a “lo!” and “hurray!” they joined in the affray \\*
+Quickly cleared the way for the rocky road to Dublin
+
+\chorusmark
 \end{xverse}
+
+\section{Whiskey in the Jar}
+
+\begin{xverse}
+It’s as I was going over the Cork and Kerry Mountains \\*
+I met with Captain Farrel and his money he was countin’ \\*
+I first produced my pistol and I then produced my rapier \\*
+sayin’, “stand and deliver for I am your bold deceiver:
+
+\chorusdef
+mush a ring a ma dor um dah \gray{(4 claps)} \\*
+whack for the daddy Oh \gray{(2 claps)} \\*
+whack for the daddy Oh \\*
+there’s whiskey in the jar \gray{(yell “HEY” with a simultaneous clap)}
+
+I counted up my money and it made a pretty penny \\*
+I took that money home and I gave it to my Jenny \\*
+she promised and she vowed that she never would deceive me \\*
+but the devil take the women for they never can be easy
 
 \chorusmark
 
+I went into my chamber for to take a little slumber \\*
+I dreamt of gold and jewels and for sure it was no wonder \\*
+but Jenny took my charges and filled them up with water \\*
+and sent for Captain Farrel to be ready for the slaughter
 
-\section{Whiskey in the jar}
-
-\begin{xverse}
-It’s as I was going over the Cork and Kerry Mountains \\
-I met with Captain Farrel and his money he was countin’ \\
-I first produced my pistol and I then produced my rapier \\
-sayin’, “stand and deliver for I am your bold deceiver: \\
-\end{xverse}
-\begin{chorus}
-mush a ring a ma dor um dah (4 claps) \\
-whack for the daddy Oh (2 claps) \\
-whack for the daddy Oh \\
-there’s whiskey in the jar (yell “HEY” with a simultaneous clap) \\
-\end{chorus}
-\begin{xverse}
-I counted up my money and it made a pretty penny \\
-I took that money home and I gave it to my Jenny \\
-she promised and she vowed that she never would deceive me \\
-but the devil take the women for they never can be easy \\
-\end{xverse}
-\chorusmark
-\begin{xverse}
-I went into my chamber for to take a little slumber \\
-I dreamt of gold and jewels and for sure it was no wonder \\
-but Jenny took my charges and filled them up with water \\
-and sent for Captain Farrel to be ready for the slaughter \\
-\end{xverse}
-\chorusmark
-\begin{xverse}
-It was early in the mornin’ before I rose to travel \\
-surrounded by the footmen and likewise Captain Farrel \\
-I went for my old pistol for they’d stolen my old rapier \\
-but I couldn’t shoot the water so a prisoner I was taken \\
-\end{xverse}
-\chorusmark
-\begin{xverse}
-If anyone can save me it’s my brother in the army \\
-I think that he is stationed in Cork or in Killarney \\
-and if he would be here we’d be rovin’ in Kilkenny \\
-I know he’d treat be better than my darlin’ sportin’ Jenny \\
-\end{xverse}
 \chorusmark
 
+It was early in the mornin’ before I rose to travel \\*
+surrounded by the footmen and likewise Captain Farrel \\*
+I went for my old pistol for they’d stolen my old rapier \\*
+but I couldn’t shoot the water so a prisoner I was taken
+
+\chorusmark
+
+If anyone can save me it’s my brother in the army \\*
+I think that he is stationed in Cork or in Killarney \\*
+and if he would be here we’d be rovin’ in Kilkenny \\*
+I know he’d treat be better than my darlin’ sportin’ Jenny
+
+\chorusmark
+\end{xverse}
 
 \section{Retirement Song}
-\begin{xverse}
-I’ve been roaming all my life, and now I’ve found a lady wife, I’m staying right here. \\
-Oh, I won’t go sailing anymore, I won’t obey the oceans call, I’m staying right here. \\
-\end{xverse}
-
-\begin{chorus}
-I’ll be a man of the land, I’ll be a man of the trees, I’ll be a man, wherever my woman will be. \\
-I won’t be any captains mate, I won’t be servant of the seas; \\
-’Cause this pretty little woman is all I need. \\
-\end{chorus}
 
 \begin{xverse}
-At 14 I was Cabin boy, to fearsome Captain Buckleroy, I’m staying right here. \\
-When I was sick he ordered cat-a-nine, until I said that I felt fine, I’m staying right here, \\
-\end{xverse}
+I’ve been roaming all my life, \\*
+And now I’ve found a lady wife, \\*
+I’m staying, right here. \\*
+Oh, I won’t go sailing anymore, \\*
+I won’t obey the oceans call, \\*
+I’m staying right here.
+
+\chorusdef
+I’ll be a man of the land, \\*
+I’ll be a man of the trees, \\*
+I’ll be a man, wherever my woman will be. \\*
+I won’t be any captains mate, \\*
+I won’t be servant of the seas; \\*
+’Cause this pretty little woman is all I need.
+
+At 14 I was cabin boy \\*
+To fearsome Captain Buckleroy, \\*
+I’m staying right here. \\*
+When I was sick he ordered cat-a-nine, \\*
+Until I said that I felt fine, \\*
+I’m staying right here,
 
 \chorusmark
 
-\begin{xverse}
-At 20 I manned that crows nest and captain said “I was the best”, I’m staying right here, \\
-but I nearly lost my eyes to god, just looking out for old cape cod, I’m staying right here. \\
-\end{xverse}
+At 20 I manned that crow’s nest \\*
+And captain said “I was the best”, \\*
+I’m staying right here, \\*
+But I nearly lost my eyes to god, \\*
+Just looking out for old cape cod, \\*
+I’m staying right here.
 
 \chorusmark
 
-\begin{xverse}
-At 25 no man alive could match my skills for gun’en, I’m staying right here, \\
-But the Captain he got drunk one night and sank the blasted cannon, I’m staying right here, \\
-\end{xverse}
+At 25 no man alive \\*
+Could match my skills for gun’en, \\*
+I’m staying right here, \\*
+But the Captain he got drunk one night \\*
+And sank the blasted cannon, \\*
+I’m staying right here,
 
 \chorusmark
 
-\begin{xverse}
-Captain died at 28 and by then I was his first mate, I’m staying right here \\
-Oh they tried to give me his command but I was hungry for the land, I’m staying right here, \\
-\end{xverse}
+Captain died at 28 \\*
+And by then I was his first mate, \\*
+I’m staying right here \\*
+Oh they tried to give me his command \\*
+But I was hungry for the land, \\*
+I’m staying right here,
 
 \chorusmark
 
-\begin{xverse}
-Stepped ashore at Felix stow and made for Bristol by the road, I’m staying right here, \\
-well I fell in love, when, first, I saw, her, Avon county’s finest daughter, and now she’s got me staying right here, \\
-hoo-hey! \\
-\end{xverse}
+Stepped ashore at Felixstowe \\*
+And made for Bristol by the road, \\*
+I’m staying right here, \\*
+Well I fell in love, when, first, I saw, her, \\*
+Avon county’s finest daughter, \\*
+And now she’s got me staying right here, \\*
+Hoo-hey!
 
 \chorusmark
 
-\begin{xverse}
-I’ll be a man of the land, I’ll be a man of the trees, I’ll be a man, wherever my woman will be. \\
-I won’t be any captains mate, I won’t be servant of the seas; \\
-’Cause this pretty, little, woman, is, all, I, need. \\
+I’ll be a man of the land, \\*
+I’ll be a man of the trees, \\*
+I’ll be a man, wherever my woman will be. \\*
+I won’t be any captains mate, \\*
+I won’t be servant of the seas; \\*
+’Cause this pretty, little, woman, is, all, I, need.
 \end{xverse}
 
 \section{The Parting Glass}
 
 \begin{xverse}
-Of all the money that e’er I had \\
-I spent it in good company \\
-And all the harm I’ve ever done \\
-Alas, it was to none but me \\
-And all I’ve done for want of wit \\
-To memory now I can’t recall \\
-So fill to me the parting glass \\
-Good night and joy be to you all \\
-\end{xverse}
+Of all the money that e’er I had \\*
+I spent it in good company \\*
+And all the harm I’ve ever done \\*
+Alas, it was to none but me \\*
+And all I’ve done for want of wit \\*
+To memory now I can’t recall \\*
+So fill to me the parting glass \\*
+Good night and joy be to you all
 
-\begin{xverse}
-So fill to me the parting glass \\
-And drink a health whate’er befalls \\
-Then gently rise and softly call \\
-“Good night and joy be to you all” \\
-\end{xverse}
+So fill to me the parting glass \\*
+And drink a health whate’er befalls \\*
+Then gently rise and softly call \\*
+“Good night and joy be to you all”
 
-\begin{xverse}
-Of all the comrades that e’er I had \\
-They’re sorry for my going away \\
-And all the sweethearts that e’er I had \\
-They’d wish me one more day to stay \\
-\end{xverse}
+Of all the comrades that e’er I had \\*
+They’re sorry for my going away \\*
+And all the sweethearts that e’er I had \\*
+They’d wish me one more day to stay
 
-\begin{xverse}
-But since it fell into my lot \\
-That I should rise and you should not \\
-I’ll gently rise and softly call \\
-“Good night and joy be to you all” \\
-\end{xverse}
+But since it fell into my lot \\*
+That I should rise and you should not \\*
+I’ll gently rise and softly call \\*
+“Good night and joy be to you all”
 
-\begin{xverse}
-But since it fell into my lot \\
-That I should rise and you should not \\
-I’ll gently rise and softly call \\
-“Good night and joy be to you all” \\
-\end{xverse}
+But since it fell into my lot \\*
+That I should rise and you should not \\*
+I’ll gently rise and softly call \\*
+“Good night and joy be to you all”
 
-\begin{xverse}
-So fill to me the parting glass \\
-And drink a health whate’er befalls \\
-Then gently rise and softly call \\
-“Good night and joy be to you all” \\
-Good night and joy be to you all \\
+So fill to me the parting glass \\*
+And drink a health whate’er befalls \\*
+Then gently rise and softly call \\*
+“Good night and joy be to you all” \\*
+Good night and joy be to you all
 \end{xverse}
 
 \section{Spanish Ladies}
 
 \begin{xverse}
-Farewell and adieu to you, Spanish Ladies \\
-Farewell and adieu to you, ladies of Spain; \\
-For we’ve received orders for to sail for old England \\
-But we hope in a short time to see you again \\
-\end{xverse}
+Farewell and adieu to you, Spanish Ladies \\*
+Farewell and adieu to you, ladies of Spain; \\*
+For we’ve received orders for to sail for old England \\*
+But we hope in a short time to see you again
 
-\begin{chorus}
-We will rant and we’ll roar like true British sailors \\
-We’ll rant and we’ll roar all on the salt seas \\
-Until we strike soundings in the channel of old England; \\
-From Ushant to Scilly is thirty-five leagues \\
-\end{chorus}
+\chorusdef
+We will rant and we’ll roar like true British sailors \\*
+We’ll rant and we’ll roar all on the salt seas \\*
+Until we strike soundings in the channel of old England; \\*
+From Ushant to Scilly is thirty-five leagues
  
-\begin{xverse}
-We hove our ship to with the wind from sou’west, boys \\
-We hove our ship to, deep soundings to take; \\
-’Twas forty-five fathoms, with a white sandy bottom \\
-So we squared our main yard and up channel did make \\
-\end{xverse}
+We hove our ship to with the wind from sou’west, boys \\*
+We hove our ship to, deep soundings to take; \\*
+’Twas forty-five fathoms, with a white sandy bottom \\*
+So we squared our main yard and up channel did make
 
 \chorusmark
 
-\begin{xverse}
-The first land we sighted was calléd the Dodman \\
-Next Rame Head off Plymouth, Start, Portland and Wight; \\
-We sailed by Beachy, by Fairlight and Dover \\
-And then we bore up for the South Foreland light \\
-\end{xverse}
+The first land we sighted was callèd the Dodman \\*
+Next Rame Head off Plymouth, Start, Portland and Wight; \\*
+We sailed by Beachy, by Fairlight and Dover \\*
+And then we bore up for the South Foreland light
 
 \chorusmark
 
-\begin{xverse}
-Then the signal was made for the grand fleet to anchor \\
-And all in the Downs that night for to lie; \\
-Let go your shank painter, let go your cat stopper \\
-Haul up your clewgarnets, let tacks and sheets fly! \\
-\end{xverse}
+Then the signal was made for the grand fleet to anchor \\*
+And all in the Downs that night for to lie; \\*
+Let go your shank painter, let go your cat stopper \\*
+Haul up your clewgarnets, let tacks and sheets fly!
 
 \chorusmark
 
-\begin{xverse}
-Now let ev’ry man drink off his full bumper \\
-And let ev’ry man drink off his full bowl; \\
-We’ll drink and be jolly and drown melancholy \\
-And here’s to the health of each true-hearted soul \\
-\end{xverse}
+Now let ev’ry man drink off his full bumper \\*
+And let ev’ry man drink off his full bowl; \\*
+We’ll drink and be jolly and drown melancholy \\*
+And here’s to the health of each true-hearted soul
 
 \chorusmark
-
+\end{xverse}
 
 \section{Seven Drunken Nights}
 
 \begin{xverse}
-Oh, as I went home on Monday night \\
-As drunk as drunk could be \\
-I saw a horse outside the door \\
-Where my old horse should be \\
-Well, I called me wife and I said to her \\
-“Will you kindly tell to me \\
-Who owns that horse outside the door, \\
-Where my old horse should be?“ \\
-Ay, you’re drunk, you’re drunk you silly old fool \\
-Still you cannot see \\
-That’s a lovely sow that my mother sent to me \\
-Well, it’s many a day I’ve traveled, a hundred miles or more \\
-But a saddle on a sow, sure, I never saw before \\
-\end{xverse}
+Oh, as I went home on Monday night \\*
+As drunk as drunk could be \\*
+I saw a horse outside the door \\*
+Where my old horse should be \\*
+Well, I called me wife and I said to her \\*
+“Will you kindly tell to me \\*
+Who owns that horse outside the door, \\*
+Where my old horse should be?“ \\*
+Ay, you’re drunk, you’re drunk you silly old fool \\*
+Still you cannot see \\*
+That’s a lovely sow that my mother sent to me \\*
+Well, it’s many a day I’ve traveled, a hundred miles or more \\*
+But a saddle on a sow, sure, I never saw before
 
-\begin{xverse}
-And as I went home on Tuesday night \\
-As drunk as drunk could be \\
-I saw a coat behind the door \\
-Where my old coat should be \\
-Well, I called me wife and I said to her \\
-“Will you kindly tell to me \\
-Who owns that coat behind the door \\
-Where my old coat should be?“ \\
-Ay, you’re drunk, you’re drunk you silly old fool \\
-Still you cannot see \\
-That’s a woolen blanket that me mother sent to me \\
-Well, it’s many a day I’ve traveled, a hundred miles or more \\
-But buttons on a blanket, sure, I never saw before \\
-\end{xverse}
+And as I went home on Tuesday night \\*
+As drunk as drunk could be \\*
+I saw a coat behind the door \\*
+Where my old coat should be \\*
+Well, I called me wife and I said to her \\*
+“Will you kindly tell to me \\*
+Who owns that coat behind the door \\*
+Where my old coat should be?“ \\*
+Ay, you’re drunk, you’re drunk you silly old fool \\*
+Still you cannot see \\*
+That’s a woolen blanket that me mother sent to me \\*
+Well, it’s many a day I’ve traveled, a hundred miles or more \\*
+But buttons on a blanket, sure, I never saw before
 
-\begin{xverse}
-And as I went home on Wednesday night \\
-As drunk as drunk could be \\
-I saw a pipe upon the chair \\
-Where my old pipe should be \\
-Well, I called my wife and I said to her \\
-“Will you kindly tell to me \\
-Who owns that pipe upon the chair \\
-Where my old pipe should be?“ \\
-Ay, you’re drunk, you’re drunk you silly old fool \\
-Still you cannot see \\
-That’s a lovely tin-whistle, that me mother sent to me \\
-Well, it’s many a day I’ve traveled, a hundred miles or more \\
-But tobacco in a tin-whistle, sure, I never saw before \\
-\end{xverse}
+And as I went home on Wednesday night \\*
+As drunk as drunk could be \\*
+I saw a pipe upon the chair \\*
+Where my old pipe should be \\*
+Well, I called my wife and I said to her \\*
+“Will you kindly tell to me \\*
+Who owns that pipe upon the chair \\*
+Where my old pipe should be?“ \\*
+Ay, you’re drunk, you’re drunk you silly old fool \\*
+Still you cannot see \\*
+That’s a lovely tin-whistle, that me mother sent to me \\*
+Well, it’s many a day I’ve traveled, a hundred miles or more \\*
+But tobacco in a tin-whistle, sure, I never saw before
 
-\begin{xverse}
-And I went home on Thursday nigh \\
-As drunk as drunk could be \\
-I saw two boots beneath the bed \\
-Where my old boots should be \\
-Well, I called me wife and I said to her \\
-“Will you kindly tell to me \\
-Who owns them boots beneath the bed \\
-Where my old boots should be?“ \\
-Ay, you’re drunk, you’re drunk you silly old fool \\
-Still you cannot see \\
-They’re two lovely geranium pots me mother sent to me \\
-Well, it’s many a day I’ve traveled, a hundred miles or more \\
-But laces in geranium pots I never saw before \\
-\end{xverse}
+And I went home on Thursday nigh \\*
+As drunk as drunk could be \\*
+I saw two boots beneath the bed \\*
+Where my old boots should be \\*
+Well, I called me wife and I said to her \\*
+“Will you kindly tell to me \\*
+Who owns them boots beneath the bed \\*
+Where my old boots should be?“ \\*
+Ay, you’re drunk, you’re drunk you silly old fool \\*
+Still you cannot see \\*
+They’re two lovely geranium pots me mother sent to me \\*
+Well, it’s many a day I’ve traveled, a hundred miles or more \\*
+But laces in geranium pots I never saw before
 
-\begin{xverse}
-And as I came home on Friday night \\
-As drunk as drunk could be \\
-I saw a head upon the bed \\
-Where my old head should be \\
-Well, I called my wife and I said to her \\
-“Will you kindly tell to me \\
-Who owns that head upon the bed \\
-Where my old head should be?“ \\
-Ay, you’re drunk, you’re drunk you silly old fool \\
-Still you cannot see \\
-That’s a baby boy that me mother sent to me \\
-Well, it’s many a day I’ve traveled, a hundred miles or more \\
-But a baby boy with his whiskers on, sure, I never saw before \\
+And as I came home on Friday night \\*
+As drunk as drunk could be \\*
+I saw a head upon the bed \\*
+Where my old head should be \\*
+Well, I called my wife and I said to her \\*
+“Will you kindly tell to me \\*
+Who owns that head upon the bed \\*
+Where my old head should be?“ \\*
+Ay, you’re drunk, you’re drunk you silly old fool \\*
+Still you cannot see \\*
+That’s a baby boy that me mother sent to me \\*
+Well, it’s many a day I’ve traveled, a hundred miles or more \\*
+But a baby boy with his whiskers on, sure, I never saw before
 \end{xverse}
 
 \section{Barrett’s Privateers}
 
 \begin{xverse}
-Oh, the year was 1778 \\
-How I wish I was in Sherbrooke now \\
-A letter of marque came from the king \\
-To the scummiest vessel I’ve ever seen \\
-God damn them all! I was told \\
-We’d cruise the seas for American gold \\
-We’d fire no guns, shed no tears \\
-But I’m a broken man on a Halifax pier \\
-The last of Barrett’s Privateers \\
-\end{xverse}
+Oh, the year was 1778 \\*
+How I wish I was in Sherbrooke now \\*
+A letter of marque came from the king \\*
+To the scummiest vessel I’ve ever seen \\*
+God damn them all! I was told \\*
+We’d cruise the seas for American gold \\*
+We’d fire no guns, shed no tears \\*
+But I’m a broken man on a Halifax pier \\*
+The last of Barrett’s Privateers
 
-\begin{xverse}
-Oh, Elcid Barrett cried the town \\
-How I wish I was in Sherbrooke now \\
-For twenty brave men all fishermen who \\
-Would make for him the Antelope’s crew \\
-God damn them all! I was told \\
-We’d cruise the seas for American gold \\
-We’d fire no guns, shed no tears \\
-But I’m a broken man on a Halifax pier \\
-The last of Barrett’s Privateers \\
-\end{xverse}
+Oh, Elcid Barrett cried the town \\*
+How I wish I was in Sherbrooke now \\*
+For twenty brave men all fishermen who \\*
+Would make for him the Antelope’s crew \\*
+God damn them all! I was told \\*
+We’d cruise the seas for American gold \\*
+We’d fire no guns, shed no tears \\*
+But I’m a broken man on a Halifax pier \\*
+The last of Barrett’s Privateers
 
-\begin{xverse}
-The Antelope sloop was a sickening sight \\
-How I wish I was in Sherbrooke now \\
-She’d a list to the port and her sails in rags \\
-And the cook in the scuppers with the staggers and jags \\
-God damn them all! I was told \\
-We’d cruise the seas for American gold \\
-We’d fire no guns, shed no tears \\
-But I’m a broken man on a Halifax pier \\
-The last of Barrett’s Privateers \\
-\end{xverse}
+The Antelope sloop was a sickening sight \\*
+How I wish I was in Sherbrooke now \\*
+She’d a list to the port and her sails in rags \\*
+And the cook in the scuppers with the staggers and jags \\*
+God damn them all! I was told \\*
+We’d cruise the seas for American gold \\*
+We’d fire no guns, shed no tears \\*
+But I’m a broken man on a Halifax pier \\*
+The last of Barrett’s Privateers
 
-\begin{xverse}
-On the King’s birthday we put to sea \\
-How I wish I was in Sherbrooke now \\
-We were 91 days to Montego Bay \\
-Pumping like madmen all the way \\
-God damn them all! I was told \\
-We’d cruise the seas for American gold \\
-We’d fire no guns, shed no tears \\
-But I’m a broken man on a Halifax pier \\
-The last of Barrett’s Privateers \\
-\end{xverse}
+On the King’s birthday we put to sea \\*
+How I wish I was in Sherbrooke now \\*
+We were 91 days to Montego Bay \\*
+Pumping like madmen all the way \\*
+God damn them all! I was told \\*
+We’d cruise the seas for American gold \\*
+We’d fire no guns, shed no tears \\*
+But I’m a broken man on a Halifax pier \\*
+The last of Barrett’s Privateers
 
-\begin{xverse}
-On the 96th day we sailed again \\
-How I wish I was in Sherbrooke now \\
-When a bloody great Yankee hove in sight \\
-With our cracked four pounders we made to fight \\
-God damn them all! I was told \\
-We’d cruise the seas for American gold \\
-We’d fire no guns, shed no tears \\
-But I’m a broken man on a Halifax pier \\
-The last of Barrett’s Privateers \\
-\end{xverse}
+On the 96th day we sailed again \\*
+How I wish I was in Sherbrooke now \\*
+When a bloody great Yankee hove in sight \\*
+With our cracked four pounders we made to fight \\*
+God damn them all! I was told \\*
+We’d cruise the seas for American gold \\*
+We’d fire no guns, shed no tears \\*
+But I’m a broken man on a Halifax pier \\*
+The last of Barrett’s Privateers
 
-\begin{xverse}
-Now the Yankee lay low down with gold \\
-How I wish I was in Sherbrooke now \\
-She was broad and fat and loose in the stays \\
-But to catch her took the Antelope two whole days \\
-God damn them all! I was told \\
-We’d cruise the seas for American gold \\
-We’d fire no guns, shed no tears \\
-But I’m a broken man on a Halifax pier \\
-The last of Barrett’s Privateers \\
-\end{xverse}
+Now the Yankee lay low down with gold \\*
+How I wish I was in Sherbrooke now \\*
+She was broad and fat and loose in the stays \\*
+But to catch her took the Antelope two whole days \\*
+God damn them all! I was told \\*
+We’d cruise the seas for American gold \\*
+We’d fire no guns, shed no tears \\*
+But I’m a broken man on a Halifax pier \\*
+The last of Barrett’s Privateers
 
-\begin{xverse}
-Then at length we stood two cables away \\
-How I wish I was in Sherbrooke now \\
-Our cracked four pounders made an awful din \\
-But with one fat ball, the Yank stove us in \\
-God damn them all! I was told \\
-We’d cruise the seas for American gold \\
-We’d fire no guns, shed no tears \\
-But I’m a broken man on a Halifax pier \\
-The last of Barrett’s Privateers \\
-\end{xverse}
+Then at length we stood two cables away \\*
+How I wish I was in Sherbrooke now \\*
+Our cracked four pounders made an awful din \\*
+But with one fat ball, the Yank stove us in \\*
+God damn them all! I was told \\*
+We’d cruise the seas for American gold \\*
+We’d fire no guns, shed no tears \\*
+But I’m a broken man on a Halifax pier \\*
+The last of Barrett’s Privateers
 
-\begin{xverse}
-The Antelope shook and pitched on her side \\
-How I wish I was in Sherbrooke now \\
-Barrett was smashed like a bowl of eggs \\
-And the Main truck carried off both me legs \\
-God damn them all! I was told \\
-We’d cruise the seas for American gold \\
-We’d fire no guns, shed no tears \\
-But I’m a broken man on a Halifax pier \\
-The last of Barrett’s Privateers \\
-\end{xverse}
+The Antelope shook and pitched on her side \\*
+How I wish I was in Sherbrooke now \\*
+Barrett was smashed like a bowl of eggs \\*
+And the Main truck carried off both me legs \\*
+God damn them all! I was told \\*
+We’d cruise the seas for American gold \\*
+We’d fire no guns, shed no tears \\*
+But I’m a broken man on a Halifax pier \\*
+The last of Barrett’s Privateers
 
-\begin{xverse}
-So here I lay in my 23rd year \\
-How I wish I was in Sherbrooke now \\
-It’s been 6 years since we sailed away \\
-And I just made Halifax yesterday \\
-God damn them all! I was told \\
-We’d cruise the seas for American gold \\
-We’d fire no guns, shed no tears \\
-But I’m a broken man on a Halifax pier \\
-The last of Barrett’s Privateers \\
+So here I lay in my 23rd year \\*
+How I wish I was in Sherbrooke now \\*
+It’s been 6 years since we sailed away \\*
+And I just made Halifax yesterday \\*
+God damn them all! I was told \\*
+We’d cruise the seas for American gold \\*
+We’d fire no guns, shed no tears \\*
+But I’m a broken man on a Halifax pier \\*
+The last of Barrett’s Privateers
 \end{xverse}
-
 
 \section{The Rattlin’ Bog}
 
-\begin{chorus}
-Ho, ro, the rattlin’ bog \\
-The bog down in the valley-o \\
-Ho, ro, the rattlin’ bog \\
-The bog down in the valley-o \\
-\end{chorus}
-
 \begin{xverse}
-In that bog there was a tree \\
-A rare tree, a rattlin’ tree \\
-The tree in the bog \\
-In the bog down in the valley-o \\
+\chorusdef
+Ho, ro, the rattlin’ bog \\*
+The bog down in the valley-o \\*
+Ho, ro, the rattlin’ bog \\*
+The bog down in the valley-o
+
+In that bog there was a tree \\*
+A rare tree, a rattlin’ tree \\*
+The tree in the bog \\*
+In the bog down in the valley-o
+
+\chorusmark
+
+And on that tree there was a limb \\*
+A rare limb, a rattlin’ limb \\*
+The limb on the tree and the tree in the bog \\*
+In the bog down in the valley-o
+
+\chorusmark
+
+And on that limb there was a branch \\*
+A rare branch, a rattlin’ branch \\*
+The branch on the limb \\*
+The limb on the tree \\*
+And the tree in the bog \\*
+In the bog down in the valley-o
+
+\chorusmark
+
+And on that branch there was a twig \\*
+A rare twig, a rattlin’ twig \\*
+The twig on the branch \\*
+The branch on the limb \\*
+The limb on the tree \\*
+And the tree in the bog \\*
+In the bog down in the valley-o
+
+\chorusmark
+
+And on that twig there was a nest \\*
+A rare nest, a rattlin’ nest \\*
+The nest on the twig \\*
+The twig on the branch \\*
+The branch on the limb \\*
+The limb on the tree \\*
+And the tree in the bog \\*
+In the bog down in the valley-o
+
+\chorusmark
+
+And in that nest there was an egg \\*
+A rare egg, a rattlin’ egg \\*
+The egg in the nest \\*
+The nest on the twig \\*
+The twig on the branch \\*
+The branch on the limb, the limb on the tree \\*
+And the tree in the bog \\*
+In the bog down in the valley-o
+
+\chorusmark
+
+And on that egg there was a bird \\*
+A rare bird, a rattlin’ bird \\*
+The bird on the egg \\*
+The egg in the nest \\*
+The nest on the twig \\*
+The twig on the branch \\*
+The branch on the limb \\*
+The limb on the tree \\*
+And the tree in the bog \\*
+In the bog down in the valley-o
+
+\chorusmark
+
+And on that bird there was a feather \\*
+A rare feather, a rattlin’ feather \\*
+The feather on the bird \\*
+The bird on the egg \\*
+The egg in the nest \\*
+The nest on the twig \\*
+The twig on the branch \\*
+The branch on the limb \\*
+The limb on the tree \\*
+And the tree in the bog \\*
+In the bog down in the valley-o
+
+\chorusmark
+
+And on that feather there was a flea \\*
+A rare flea, a rattlin’ flea \\*
+The flea in the feather \\*
+The feather on the bird \\*
+The bird on the egg \\*
+The egg in the nest \\*
+The nest on the twig \\*
+The twig on the branch \\*
+The branch on the limb \\*
+The limb on the tree \\*
+And the tree in the bog \\*
+In the bog down in the valley-o
+
+\chorusmark[4]
 \end{xverse}
-
-\chorusmark
-
-\begin{xverse}
-And on that tree there was a limb \\
-A rare limb, a rattlin’ limb \\
-The limb on the tree and the tree in the bog \\
-In the bog down in the valley-o \\
-\end{xverse}
-
-\chorusmark
-
-\begin{xverse}
-And on that limb there was a branch \\
-A rare branch, a rattlin’ branch \\
-The branch on the limb \\
-The limb on the tree \\
-And the tree in the bog \\
-In the bog down in the valley-o \\
-\end{xverse}
-
-\chorusmark
-
-\begin{xverse}
-And on that branch there was a twig \\
-A rare twig, a rattlin’ twig \\
-The twig on the branch \\
-The branch on the limb \\
-The limb on the tree \\
-And the tree in the bog \\
-In the bog down in the valley-o \\
-\end{xverse}
-
-\chorusmark
-
-\begin{xverse}
-And on that twig there was a nest \\
-A rare nest, a rattlin’ nest \\
-The nest on the twig \\
-The twig on the branch \\
-The branch on the limb \\
-The limb on the tree \\
-And the tree in the bog \\
-In the bog down in the valley-o \\
-\end{xverse}
-
-\chorusmark
-
-\begin{xverse}
-And in that nest there was an egg \\
-A rare egg, a rattlin’ egg \\
-The egg in the nest \\
-The nest on the twig \\
-The twig on the branch \\
-The branch on the limb, the limb on the tree \\
-And the tree in the bog \\
-In the bog down in the valley-o \\
-\end{xverse}
-
-\chorusmark
-
-\begin{xverse}
-And on that egg there was a bird \\
-A rare bird, a rattlin’ bird \\
-The bird on the egg \\
-The egg in the nest \\
-The nest on the twig \\
-The twig on the branch \\
-The branch on the limb \\
-The limb on the tree \\
-And the tree in the bog \\
-In the bog down in the valley-o \\
-\end{xverse}
-
-\chorusmark
-
-\begin{xverse}
-And on that bird there was a feather \\
-A rare feather, a rattlin’ feather \\
-The feather on the bird \\
-The bird on the egg \\
-The egg in the nest \\
-The nest on the twig \\
-The twig on the branch \\
-The branch on the limb \\
-The limb on the tree \\
-And the tree in the bog \\
-In the bog down in the valley-o \\
-\end{xverse}
-
-\chorusmark
-
-\begin{xverse}
-And on that feather there was a flea \\
-A rare flea, a rattlin’ flea \\
-The flea in the feather \\
-The feather on the bird \\
-The bird on the egg \\
-The egg in the nest \\
-The nest on the twig \\
-The twig on the branch \\
-The branch on the limb \\
-The limb on the tree \\
-And the tree in the bog \\
-In the bog down in the valley-o \\
-\end{xverse}
-
-\chorusmark
-
-\chorusmark
-
-\chorusmark
-
-\chorusmark
-
 
 \section{Flower of Scotland}
 
 \begin{xverse}
-O flower of Scotland \\
-When will we see your like again \\
-That fought and died for \\
-Your wee bit hill and glen \\
-And stood against him \\
-Proud Edward’s army \\
-And sent him homeward \\
-Tae think again \\
-\end{xverse}
+O flower of Scotland \\*
+When will we see your like again \\*
+That fought and died for \\*
+Your wee bit hill and glen \\*
+And stood against him \\*
+Proud Edward’s army \\*
+And sent him homeward \\*
+Tae think again
 
-\begin{xverse}
-The hills are bare now \\
-And autumn leaves lie thick and still \\
-O’er land that is lost now \\
-Which those so dearly held \\
-And stood against him \\
-Proud Edward’s army \\
-And sent him homeward \\
-Tae think again \\
-\end{xverse}
+The hills are bare now \\*
+And autumn leaves lie thick and still \\*
+O’er land that is lost now \\*
+Which those so dearly held \\*
+And stood against him \\*
+Proud Edward’s army \\*
+And sent him homeward \\*
+Tae think again
 
-\begin{xverse}
-Those days are passed now \\
-And in the past they must remain \\
-But we can still rise now \\
-And be the nation again \\
-That stood against him \\
-Proud Edward’s army \\
-And sent him homeward \\
-Tae think again \\
+Those days are passed now \\*
+And in the past they must remain \\*
+But we can still rise now \\*
+And be the nation again \\*
+That stood against him \\*
+Proud Edward’s army \\*
+And sent him homeward \\*
+Tae think again
 \end{xverse}
 
 
 \section{The Irish Pub Song}
 
 \begin{xverse}
-Well, you’re walkin’ through a city street, you could be in Peru \\
-And you hear a distant calling and you know it’s meant for you \\
-Then you drop what you were doing and you join the merry mob \\
-And before you know just where you are, you’re in an Irish pub \\
-\end{xverse}
+Well, you’re walkin’ through a city street, you could be in Peru \\*
+And you hear a distant calling and you know it’s meant for you \\*
+Then you drop what you were doing and you join the merry mob \\*
+And before you know just where you are, you’re in an Irish pub
 
-\begin{chorus}
-They’ve got one in Honolulu, they’ve got one in Moscow too \\
-They got four of them in Sydney and a couple in Kathmandu \\
-So whether you sing or pull a pint you’ll always have a job \\
-’Cause where ever you go around the world you’ll find an Irish pub \\
-\end{chorus}
+\chorusdef
+They’ve got one in Honolulu, they’ve got one in Moscow too \\*
+They got four of them in Sydney and a couple in Kathmandu \\*
+So whether you sing or pull a pint you’ll always have a job \\*
+’Cause where ever you go around the world you’ll find an Irish pub
 
-\begin{xverse}
-Now that design is fairly simple and it usually works the same, \\
-You’ll have ‘Razor Houghton’ scoring in the Ireland - England game \\
-And you know your in an Irish pub the minute you’re in the door, \\
-For a couple of boys with bodhrans will be murdering Christy Moore \\
-\end{xverse}
+Now that design is fairly simple and it usually works the same, \\*
+You’ll have ‘Razor Houghton’ scoring in the Ireland - England game \\*
+And you know your in an Irish pub the minute you’re in the door, \\*
+For a couple of boys with bodhrans will be murdering Christy Moore
 
 \chorusmark
 
-\begin{xverse}
-Now the owner is Norwegian and the manager comes from Cork \\
-And the lad that’s holding up the bar says ‘Only Eejits Work’ \\
-He was born and bred in Bolton but his mammy’s from Kildare \\
-And he’s going to make his fortune soon and move to County Clare \\
+Now the owner is Norwegian and the manager comes from Cork \\*
+And the lad that’s holding up the bar says ‘Only Eejits Work’ \\*
+He was born and bred in Bolton but his mammy’s from Kildare \\*
+And he’s going to make his fortune soon and move to County Clare
+
+\chorusmark
+
+Now it’s time for me to go, I have to catch me train \\*
+So I’ll leave ye sitting at the bar and face the wind and rain \\*
+For I’ll have that pint you owe me, if I’m not gone on the dry \\*
+When we meet next week in Frankford in the fields of Athenry
+
+\chorusmark[2]
 \end{xverse}
-
-\chorusmark
-
-\begin{xverse}
-Now it’s time for me to go, I have to catch me train \\
-So I’ll leave ye sitting at the bar and face the wind and rain \\
-For I’ll have that pint you owe me, if I’m not gone on the dry \\
-When we meet next week in Frankford in the fields of Athenry \\
-\end{xverse}
-
-\chorusmark
-
-\chorusmark
-
 
 \section{On the Banks of the Roses}
 
-\begin{chorus}
-On the Banks of the Roses me love and I sat down \\
-And I took out me fiddle for to play me love a tune \\
-And in the middle of the tune-o she sighed and she said \\
-Oro Johnny, lovely Johnny don’t ya leave me \\
-\end{chorus}
-
 \begin{xverse}
-When I was a young boy I heard me father say \\
-That he’d rather see me dead and buried in the clay \\
-Sooner than be married to any runaway \\
-By the lovely sweet banks of the roses \\
-\end{xverse}
+\chorusdef
+On the Banks of the Roses me love and I sat down \\*
+And I took out me fiddle for to play me love a tune \\*
+And in the middle of the tune-o she sighed and she said \\*
+Oro Johnny, lovely Johnny don’t ya leave me
+
+When I was a young boy I heard me father say \\*
+That he’d rather see me dead and buried in the clay \\*
+Sooner than be married to any runaway \\*
+By the lovely sweet banks of the roses
 
 \chorusmark
 
-\begin{xverse}
-And then I am no runaway and soon I’ll let them know \\
-That I can take a bottle or can leave it alone \\
-And if her daddy doesn’t like it he can keep his daughter at home \\
-And young Johnny will go rovin’ with some other \\
-\end{xverse}
+And then I am no runaway and soon I’ll let them know \\*
+That I can take a bottle or can leave it alone \\*
+And if her daddy doesn’t like it he can keep his daughter at home \\*
+And young Johnny will go rovin’ with some other
 
 \chorusmark
 
-\begin{xverse}
-And when I get married ’twill be in the month of May \\
-When the leaves they are green and the meadows they are gay \\
-And me and me true love we’ll sit and sport and play \\
-By the lovely sweet banks of the roses \\
-\end{xverse}
+And when I get married ’twill be in the month of May \\*
+When the leaves they are green and the meadows they are gay \\*
+And me and me true love we’ll sit and sport and play \\*
+By the lovely sweet banks of the roses
 
 \chorusmark
-
+\end{xverse}
 
 \section{For Auld Lang Syne}
 
 \begin{xverse}
-Should auld acquaintance be forgot, \\
-And never brought to mind? \\
-Should auld acquaintance be forgot, \\
-And auld lang syne? \\
-\end{xverse}
+Should auld acquaintance be forgot, \\*
+And never brought to mind? \\*
+Should auld acquaintance be forgot, \\*
+And auld lang syne?
 
-\begin{xverse}
-For auld lang syne, my jo, \\
-For auld lang syne, \\
-We’ll tak a cup o’ kindness yet, \\
-For auld lang syne. \\
-\end{xverse}
+For auld lang syne, my jo, \\*
+For auld lang syne, \\*
+We’ll tak a cup o’ kindness yet, \\*
+For auld lang syne.
 
-\begin{xverse}
-And surely ye’ll be your pint-stowp! \\
-And surely I’ll be mine! \\
-And we’ll tak a cup o’ kindness yet, \\
-For auld lang syne. \\
-\end{xverse}
+And surely ye’ll be your pint-stowp! \\*
+And surely I’ll be mine! \\*
+And we’ll tak a cup o’ kindness yet, \\*
+For auld lang syne.
 
-\begin{xverse}
-We twa hae run about the braes, \\
-And pu’d the gowans fine; \\
-But we’ve wander’d mony a weary foot, \\
-Sin auld lang syne. \\
-\end{xverse}
+We twa hae run about the braes, \\*
+And pu’d the gowans fine; \\*
+But we’ve wander’d mony a weary foot, \\*
+Sin auld lang syne.
 
-\begin{xverse}
-We twa hae paidl’d i’ the burn, \\
-Frae morning sun till dine; \\
-But seas between us braid hae roar’d \\
-Sin auld lang syne. \\
-\end{xverse}
+We twa hae paidl’d i’ the burn, \\*
+Frae morning sun till dine; \\*
+But seas between us braid hae roar’d \\*
+Sin auld lang syne.
 
-\begin{xverse}
-And there’s a hand, my trusty fiere! \\
-And gie’s a hand o’ thine! \\
-And we’ll tak a right gude-willy waught, \\
-For auld lang syne. \\
-\end{xverse}
+And there’s a hand, my trusty fiere! \\*
+And gie’s a hand o’ thine! \\*
+And we’ll tak a right gude-willy waught, \\*
+For auld lang syne.
 
-\begin{xverse}
-For auld lang syne, my jo, \\
-For auld lang syne, \\
-We’ll tak a cup o’ kindness yet, \\
-For auld lang syne. \\
-\end{xverse}
+For auld lang syne, my jo, \\*
+For auld lang syne, \\*
+We’ll tak a cup o’ kindness yet, \\*
+For auld lang syne.
 
-\begin{xverse}
-And surely ye’ll be your pint-stowp! \\
-And surely I’ll be mine! \\
-And we’ll tak a cup o’ kindness yet, \\
-For auld lang syne. \\
+And surely ye’ll be your pint-stowp! \\*
+And surely I’ll be mine! \\*
+And we’ll tak a cup o’ kindness yet, \\*
+For auld lang syne.
 \end{xverse}
 
 
 \section{A Health to the Company}
 
 \begin{xverse}
-Kind friends and companions, come join me in rhyme \\
-Come lift up your voices in chorus with mine \\
-Come lift up your voices, all grief to refrain \\
-For we may or might never all meet here again \\
+Kind friends and companions, come join me in rhyme \\*
+Come lift up your voices in chorus with mine \\*
+Come lift up your voices, all grief to refrain \\*
+For we may or might never all meet here again
+
+So here’s a health to the company and one to my lass \\*
+Let’s drink and be merry all out of one glass \\*
+Let’s drink and be merry, all grief to refrain \\*
+For we may or might never all meet here again
+
+Here’s a health to the wee lass that I love so well \\*
+For style and for beauty there’s none can excel \\*
+There’s a smile on her countenance as she sits upon my knee \\*
+There is no man in this wide world as happy as me
+
+So here’s a health to the company and one to my lass \\*
+Let’s drink and be merry all out of one glass \\*
+Let’s drink and be merry, all grief to refrain \\*
+For we may or might never all meet here again
+
+Our ship lies at anchor, she is ready to dock \\*
+I wish her safe landing without any shock \\*
+And if ever I should meet you by land or by sea \\*
+I will always remember your kindness to me
+
+So here’s a health to the company and one to my lass \\*
+Let’s drink and be merry all out of one glass \\*
+Let’s drink and be merry, all grief to refrain \\*
+For we may or might never all meet here again
 \end{xverse}
 
-\begin{xverse}
-So here’s a health to the company and one to my lass \\
-Let’s drink and be merry all out of one glass \\
-Let’s drink and be merry, all grief to refrain \\
-For we may or might never all meet here again \\
-\end{xverse}
-
-\begin{xverse}
-Here’s a health to the wee lass that I love so well \\
-For style and for beauty there’s none can excel \\
-There’s a smile on her countenance as she sits upon my knee \\
-There is no man in this wide world as happy as me \\
-\end{xverse}
-
-\begin{xverse}
-So here’s a health to the company and one to my lass \\
-Let’s drink and be merry all out of one glass \\
-Let’s drink and be merry, all grief to refrain \\
-For we may or might never all meet here again \\
-\end{xverse}
-
-\begin{xverse}
-Our ship lies at anchor, she is ready to dock \\
-I wish her safe landing without any shock \\
-And if ever I should meet you by land or by sea \\
-I will always remember your kindness to me \\
-\end{xverse}
-
-\begin{xverse}
-So here’s a health to the company and one to my lass \\
-Let’s drink and be merry all out of one glass \\
-Let’s drink and be merry, all grief to refrain \\
-For we may or might never all meet here again \\
-\end{xverse}
-
-\clearpage
-\pagenumbering{gobble}
-\ifodd\value{page}\hbox{}\newpage\fi
+% \clearpage
+% \pagenumbering{gobble}
+% \ifodd\value{page}\hbox{}\newpage\fi
 \end{document}
