@@ -35,14 +35,8 @@
 \fancyhf{} % clear all header and footers
 \renewcommand{\headrulewidth}{0pt} % remove the header rule
 
-\makeatletter
-\newcommand*{\shifttext}[2]{%
-  \settowidth{\@tempdima}{#2}%
-  \makebox[\@tempdima]{\hspace*{#1}#2}%
-}
 \fancyhead[LO]{\smash{\raisebox{-0.5cm}{\makebox[-1cm][r]{\makebox[0pt][c]{\thepage}}}}} % Left side on Even pages
 \fancyhead[RE]{\smash{\raisebox{-0.5cm}{\makebox[-1cm][l]{\makebox[0pt][c]{\thepage}}}}} % Right side on Odd pages
-\makeatother
 
 \pagestyle{fancy}
 
@@ -61,14 +55,23 @@
 	{
 	\end{verse}
 	\penalty 0
-}
+
+}\makeatletter
 \newcommand{\chorusdef}{\textbf{\emph{Chorus:}}\\*}
 \setlength{\stanzaskip}{8.5pt}
-\newcommand{\chorusmark}[1][1]{%
-\vspace{-0.5\stanzaskip}%
+\newcommand{\chorus@mark}[1][1]{%
 \textbf{\emph{Chorus \ifthenelse{\equal{#1}{1}}{}{$\times$ #1}}}%
-\vspace{-0.5\stanzaskip}%
 }
+\newcommand{\chorusmark}[1][1]{%
+\ifvmode%
+\vspace{-0.5\stanzaskip}%
+\chorus@mark[#1]%
+\vspace{-0.5\stanzaskip}%
+\else \\*%
+\chorus@mark[#1]%
+\fi%
+}
+\makeatother
 \newcommand{\gray}[1]{\textcolor{gray}{#1}}
 
 \title{
@@ -853,7 +856,7 @@ But a baby boy with his whiskers on, sure, I never saw before!
 \section{Barrett’s Privateers}
 
 \begin{xverse}
-Oh, the year was 1778. \\*
+Oh, the year was 1778: \\*
 (How I wish I was in Sherbrooke now!) \\*
 A letter of marque came from the king, \\*
 To the scummiest vessel I’ve ever seen.
@@ -1144,29 +1147,29 @@ When we meet next week in Frankford in the fields of Athenry!
 
 \begin{xverse}
 \chorusdef
-On the Banks of the Roses me love and I sat down \\*
-And I took out me fiddle for to play me love a tune \\*
-And in the middle of the tune-o she sighed and she said \\*
-Oro Johnny, lovely Johnny don’t ya leave me
+On the Banks of the Roses, me love and I sat down, \\*
+And I took out me fiddle for to play me love a tune. \\*
+In the middle of the tune, Oh, she sighed and she said, \\*
+“O Johnny, lovely Johnny, don’t ya leave me.”
 
-When I was a young boy I heard me father say \\*
-That he’d rather see me dead and buried in the clay \\*
-Sooner than be married to any runaway \\*
-By the lovely sweet banks of the roses
-
-\chorusmark
-
-And then I am no runaway and soon I’ll let them know \\*
-That I can take a bottle or can leave it alone \\*
-And if her daddy doesn’t like it he can keep his daughter at home \\*
-And young Johnny will go rovin’ with some other
+When I was a young boy I heard me father say, \\*
+That he’d rather see me dead and buried in the clay, \\*
+Sooner than be married to any runaway, \\*
+By the lovely sweet Banks of the Roses.
 
 \chorusmark
 
-And when I get married ’twill be in the month of May \\*
-When the leaves they are green and the meadows they are gay \\*
-And me and me true love we’ll sit and sport and play \\*
-By the lovely sweet banks of the roses
+And then I am no runaway and soon I’ll let them know, \\*
+That I can take a bottle or can leave it alone. \\*
+And if her daddy doesn’t like it, he can keep his daughter at home, \\*
+And young Johnny will go rovin’ with some other.
+
+\chorusmark
+
+And when I get married ’twill be in the month of May, \\*
+When the leaves, they are green, and the meadows, they are gay, \\*
+And me and me true love, we’ll sit and sport and play, \\*
+By the lovely sweet Banks of the Roses.
 
 \chorusmark
 \end{xverse}
