@@ -1,18 +1,18 @@
 \documentclass[9pt,twoside]{extarticle}
-\usepackage[a5paper, vmargin=0.35in, hmargin=0.65in, includefoot]{geometry}
+\usepackage[a5paper, top=1.5cm, bottom=0.6cm, hmargin=2cm, includefoot]{geometry}
 \usepackage[utf8]{inputenc}
 
 \usepackage[skip=12pt]{parskip}
 
 \usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
-\titleformat{\section}{\normalfont\fontsize{12}{18}\bfseries\filcenter}{\thesection}{0em}{}
+\titleformat{\section}{\normalfont\fontsize{12}{18}\bfseries\filcenter}{\thesection}{0em}{\vspace*{-1.85cm}}
 \titlespacing{\section}{0pt}{40pt}{30pt}
 
 \titleformat{\subsection}{\normalfont\fontsize{10}{14}\bfseries\filcenter}{\thesubsection}{0em}{}
 \titlespacing{\section}{0pt}{30pt}{20pt}
 
-\titleformat{\subsubsection}{\normalfont\fontsize{10}{14}\bfseries\filcenter}{\thesubsubsection}{0em}{}
+\titleformat{\subsubsection}{\normalfont\fontsize{9}{12}\bfseries\filcenter}{\thesubsubsection}{0em}{}
 \titlespacing{\section}{0pt}{20pt}{10pt}
 
 \usepackage{ifthen}
@@ -25,6 +25,8 @@
 \setlength{\leftmargini}{0em}
 
 \usepackage{tocloft}
+\setlength{\cftbeforesecskip}{4pt}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand\cftsecfont{\mdseries}
 \usepackage{hyperref}
 % \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % for sections, if you really want! (It is default in report and book class (So you may not need it).
@@ -72,7 +74,7 @@
 \vspace{1in}
 \\UBES Songbook}
 \author{Prototype 0.4}
-\date{2019 - 2020}
+\date{2019 -- 2020}
 
 \begin{document}
 \raggedbottom
@@ -112,6 +114,8 @@ clickable if you have the pdf.
 \end{center}
 \newpage
 
+\section*{Contents}
+\renewcommand{\contentsname}{}
 \tableofcontents
 
 \sectionbreak
@@ -265,7 +269,7 @@ If you don’t take me out of here, I’ll surely lose my mind."
 
 \chorusmark
 
-We busked around the market towns and picked fruit down in Kent \\*
+We busked around the market towns and picked fruit down in Kent. \\*
 And we could tinker pots and pans and knives wherever we went. \\*
 I said to her we’ll settle down, get a few acres dug, \\*
 A fire burning in the hearth and babies on the rug. \\*
@@ -734,14 +738,7 @@ Avon county’s finest daughter, \\*
 And now she’s got me staying right here, \\*
 Hoo-hey!
 
-\chorusmark
-
-I’ll be a man of the land, \\*
-I’ll be a man of the trees, \\*
-I’ll be a man, wherever my woman will be. \\*
-I won’t be any captains mate, \\*
-I won’t be servant of the seas; \\*
-’Cause this pretty, little, woman, is, all, I, need.
+\chorusmark[2]
 \end{xverse}
 
 \section{The Parting Glass}
@@ -1222,7 +1219,6 @@ And we’ll tak a cup o’ kindness yet, \\*
 For auld lang syne.
 \end{xverse}
 
-
 \section{A Health to the Company}
 
 \begin{xverse}
@@ -1250,6 +1246,50 @@ And if ever I should meet you by land or by sea, \\*
 I will always remember your kindness to me.
 
 \chorusmark
+\end{xverse}
+
+\section{Crossing the Bar}
+
+\begin{xverse}
+Sunset and evening star, \\*
+And one clear call for me, \\*
+And may there be no moaning of the bar, \\*
+When I put out to sea.
+
+When I put out to sea, \\*
+When I put out to sea, \\*
+And may there be no moaning of the bar, \\*
+When I put out to sea.
+
+But such a tide as moving seems asleep, \\*
+Too full for sound and foam, \\*
+When that which drew from out the boundless deep, \\*
+Turns again home.
+
+Turns again home, \\*
+Turns again home, \\*
+That which drew from out the boundless deep, \\*
+Turns again home.
+
+Twilight and evening bell, \\*
+And after that the dark! \\*
+And may there be no sadness of farewell, \\*
+When I embark.
+
+When I embark, \\*
+When I embark, \\*
+And may there be no sadness of farewell, \\*
+When I embark.
+
+For though from out our bourne of Time and Place \\*
+The flood may bear me far, \\*
+I hope to see my Pilot face to face, \\*
+When I have crossed the bar.
+
+When I have crossed the bar, \\*
+When I have crossed the bar, \\*
+I hope to see my Pilot face to face \\*
+When I have crossed the bar.
 \end{xverse}
 
 % \clearpage
