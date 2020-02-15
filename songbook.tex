@@ -7,10 +7,13 @@
 \usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
 \titleformat{\section}{\normalfont\fontsize{12}{18}\bfseries\filcenter}{\thesection}{0em}{}
-\titlespacing{\section}{0pt}{40pt}{20pt}
+\titlespacing{\section}{0pt}{40pt}{30pt}
 
 \titleformat{\subsection}{\normalfont\fontsize{10}{14}\bfseries\filcenter}{\thesubsection}{0em}{}
-\titlespacing{\section}{0pt}{20pt}{20pt}
+\titlespacing{\section}{0pt}{30pt}{20pt}
+
+\titleformat{\subsubsection}{\normalfont\fontsize{10}{14}\bfseries\filcenter}{\thesubsubsection}{0em}{}
+\titlespacing{\section}{0pt}{20pt}{10pt}
 
 \usepackage{ifthen}
 \usepackage{xcolor}
@@ -38,6 +41,8 @@
 }
 
 \setcounter{secnumdepth}{0} % sections are level 1
+
+\usepackage{qrcode}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -83,8 +88,13 @@ proofreading.
 
 \subsection*{Music}
 
-TODO
+\begin{center}
 
+\subsubsection*{Spotify}
+\quad
+\qrcode[height=1.6in]{https://open.spotify.com/playlist/2a8qmHglthbuB5US3cEcuU}
+
+\end{center}
 \newpage
 
 \tableofcontents
