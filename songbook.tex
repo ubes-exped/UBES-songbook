@@ -1,5 +1,5 @@
 \documentclass[9pt,twoside]{extarticle}
-\usepackage[a5paper, top=1.5cm, bottom=0.6cm, hmargin=3cm, includefoot]{geometry}
+\usepackage[a5paper, top=1.5cm, bottom=0.6cm, hmargin=2cm]{geometry}
 \usepackage[utf8]{inputenc}
 
 \usepackage[skip=12pt]{parskip}
@@ -34,13 +34,17 @@
 \usepackage{fancyhdr}
 \fancyhf{} % clear all header and footers
 \renewcommand{\headrulewidth}{0pt} % remove the header rule
-\fancyfoot[LO,RE]{\thepage} % Left side on Even pages; Right side on Odd pages
-\pagestyle{fancy}
-\fancypagestyle{plain}{
-  \fancyhf{}
-  \renewcommand{\headrulewidth}{0pt}
-  \fancyhf[lef,rof]{\thepage}
+
+\makeatletter
+\newcommand*{\shifttext}[2]{%
+  \settowidth{\@tempdima}{#2}%
+  \makebox[\@tempdima]{\hspace*{#1}#2}%
 }
+\fancyhead[LO]{\smash{\raisebox{-0.5cm}{\makebox[-1cm][r]{\makebox[0pt][c]{\thepage}}}}} % Left side on Even pages
+\fancyhead[RE]{\smash{\raisebox{-0.5cm}{\makebox[-1cm][l]{\makebox[0pt][c]{\thepage}}}}} % Right side on Odd pages
+\makeatother
+
+\pagestyle{fancy}
 
 \setcounter{secnumdepth}{0} % sections are level 1
 
@@ -59,7 +63,7 @@
 	\penalty 0
 }
 \newcommand{\chorusdef}{\textbf{\emph{Chorus:}}\\*}
-\setlength{\stanzaskip}{10pt}
+\setlength{\stanzaskip}{8.5pt}
 \newcommand{\chorusmark}[1][1]{%
 \vspace{-0.5\stanzaskip}%
 \textbf{\emph{Chorus \ifthenelse{\equal{#1}{1}}{}{$\times$ #1}}}%
@@ -256,7 +260,7 @@ I took a job at the steaming way down on Cauldrum Street, \\*
 Fell in love with a laundry girl that was workin’ next to me.
 
 \chorusdef
-She was a rare thing fine, as a bee’s wing, \\*
+She was a rare thing, fine as a bee’s wing, \\*
 So fine a breath of wind might blow her away. \\*
 She was a lost child, she was runnin’ wild (she said) \\*
 She said, “As long as there’s no price on love, I’ll stay, \\*
@@ -290,11 +294,11 @@ But even a gypsy caravan was too much settling down. \\*
 And they say her flower is faded now, hard weather and hard booze, \\*
 But maybe that’s just the price you pay for the chains you refuse
 
-She was a rare thing, fine as a bee’s wing \\*
-I miss her more than ever words can say \\*
-If I could just taste all of her wildness now \\*
+She was a rare thing, fine as a bee’s wing, \\*
+I miss her more than ever words can say. \\*
+If I could just taste all of her wildness now, \\*
 If I could hold her in my arms today… \\*
-I wouldn’t want her any other way
+I wouldn’t want her any other way.
 \end{xverse}
 
 \section{Leave her, Johnny}
@@ -682,16 +686,14 @@ One, two, three, four, five!
 I’ve been roaming all my life, \\*
 And now I’ve found a lady wife, \\*
 I’m staying, right here. \\*
-Oh, I won’t go sailing anymore, \\*
-I won’t obey the oceans call, \\*
+Oh, I won’t go sailing any more, \\*
+I won’t obey the ocean’s call, \\*
 I’m staying right here.
 
 \chorusdef
-I’ll be a man of the land, \\*
-I’ll be a man of the trees, \\*
+I’ll be a man of the land, I’ll be a man of the trees, \\*
 I’ll be a man, wherever my woman will be. \\*
-I won’t be any captains mate, \\*
-I won’t be servant of the seas; \\*
+I won’t be any captains mate, I won’t be servant of the seas; \\*
 ’Cause this pretty little woman is all I need.
 
 At 14 I was cabin boy \\*
@@ -707,15 +709,15 @@ At 20 I manned that crow’s nest \\*
 And captain said “I was the best”, \\*
 I’m staying right here, \\*
 But I nearly lost my eyes to god, \\*
-Just looking out for old cape cod, \\*
+Just looking out for old Cape Cod, \\*
 I’m staying right here.
 
 \chorusmark
 
 At 25 no man alive \\*
-Could match my skills for gun’en, \\*
+Could match my skills for gunnin’, \\*
 I’m staying right here, \\*
-But the Captain he got drunk one night \\*
+But the Captain, he got drunk one night, \\*
 And sank the blasted cannon, \\*
 I’m staying right here,
 
@@ -734,9 +736,8 @@ Stepped ashore at Felixstowe \\*
 And made for Bristol by the road, \\*
 I’m staying right here, \\*
 Well I fell in love, when, first, I saw, her, \\*
-Avon county’s finest daughter, \\*
-And now she’s got me staying right here, \\*
-Hoo-hey!
+Avon County’s finest daughter, \\*
+And now she’s got me staying right here!
 
 \chorusmark[2]
 \end{xverse}
@@ -773,49 +774,6 @@ I’ll gently rise and softly call, \\*
 \chorusmark
 
 Good night and joy be to you all!
-\end{xverse}
-
-\section{Spanish Ladies}
-
-\begin{xverse}
-Farewell and adieu to you Spanish Ladies, \\*
-Farewell and adieu to you ladies of Spain; \\*
-For we’ve received orders for to sail for old England, \\*
-But we hope very soon that we’ll see you again!
-
-\chorusdef
-We’ll rant and we’ll roar, like true British sailors, \\*
-We’ll rant and we’ll roar, all on the salt seas, \\*
-Until we strike soundings in the channel of old England; \\*
-From Ushant to Scilly is thirty-five leagues.
- 
-We hove our ship to with the wind from sou’west, boys, \\*
-We hove our ship to, our soundings to see; \\*
-We rounded and sounded, got fourty five fathoms, \\*
-Then we squared our main yard and up channel steered we.
-
-\chorusmark
-
-The first land we sighted was callèd the Dodman, \\*
-Next Rame Head off Plymouth, Start, Portland and Wight; \\*
-We sailed by Beachy, by Fairlight and Dover \\*
-And then we bore up for the South Foreland light
-
-\chorusmark
-
-Then the signal was made for the grand fleet to anchor, \\*
-And all in the Downs that night for to lie; \\*
-Then it's stand by your stoppers, steer clear your shank-painters, \\*
-Haul up your clew garnets, let tacks and sheets fly!
-
-\chorusmark
-
-So let every man toss off a full bumper, \\*
-and let every man drink up a full glass; \\*
-We'll drink and be merry and drown melancholy, \\*
-singing here's a good health to each true-hearted lass!
-
-\chorusmark
 \end{xverse}
 
 \section{Seven Drunken Nights}
@@ -1069,6 +1027,49 @@ And the tree in the bog \\*
 In the bog down in the valley-o
 
 \chorusmark[4]
+\end{xverse}
+
+\section{Spanish Ladies}
+
+\begin{xverse}
+Farewell and adieu to you Spanish Ladies, \\*
+Farewell and adieu to you ladies of Spain; \\*
+For we’ve received orders for to sail for old England, \\*
+But we hope very soon that we’ll see you again!
+
+\chorusdef
+We’ll rant and we’ll roar, like true British sailors, \\*
+We’ll rant and we’ll roar, all on the salt seas, \\*
+Until we strike soundings in the channel of old England; \\*
+From Ushant to Scilly is thirty-five leagues.
+ 
+We hove our ship to with the wind from sou’west, boys, \\*
+We hove our ship to, our soundings to see; \\*
+We rounded and sounded, got fourty five fathoms, \\*
+Then we squared our main yard and up channel steered we.
+
+\chorusmark
+
+The first land we sighted was callèd the Dodman, \\*
+Next Rame Head off Plymouth, Start, Portland and Wight; \\*
+We sailed by Beachy, by Fairlight and Dover \\*
+And then we bore up for the South Foreland light
+
+\chorusmark
+
+Then the signal was made for the grand fleet to anchor, \\*
+And all in the Downs that night for to lie; \\*
+Then it's stand by your stoppers, steer clear your shank-painters, \\*
+Haul up your clew garnets, let tacks and sheets fly!
+
+\chorusmark
+
+So let every man toss off a full bumper, \\*
+and let every man drink up a full glass; \\*
+We'll drink and be merry and drown melancholy, \\*
+singing here's a good health to each true-hearted lass!
+
+\chorusmark
 \end{xverse}
 
 \section{Flower of Scotland}
