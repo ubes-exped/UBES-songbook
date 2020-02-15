@@ -1,11 +1,16 @@
 \documentclass[9pt,twoside]{extarticle}
+% Leave more space at the top, as the section title will move up to fill this
+% space
 \usepackage[a5paper, top=1.5cm, bottom=0.6cm, hmargin=2cm]{geometry}
 \usepackage[utf8]{inputenc}
 
+% Define paragraph spacing
 \usepackage[skip=12pt]{parskip}
 
+% Define the spacing around the sub*section headers
 \usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
+% For \section, move into the header.
 \titleformat{\section}{\normalfont\fontsize{12}{18}\bfseries\filcenter}{\thesection}{0em}{\vspace*{-1.85cm}}
 \titlespacing{\section}{0pt}{40pt}{30pt}
 
@@ -15,48 +20,59 @@
 \titleformat{\subsubsection}{\normalfont\fontsize{9}{12}\bfseries\filcenter}{\thesubsubsection}{0em}{}
 \titlespacing{\section}{0pt}{20pt}{10pt}
 
+
 \usepackage{ifthen}
 \usepackage{xcolor}
 
+% Fonts
 \usepackage{tgpagella}
 \usepackage{mathpazo}
 
+% Verse/lyric printing
 \usepackage{verse}
+
+% Do not indent the verse
 \setlength{\leftmargini}{0em}
 
+% Table of contents
 \usepackage{tocloft}
+% Reduce space between items
 \setlength{\cftbeforesecskip}{4pt}
+% Use dots to join name and page
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+% Do not use bold face for contents
 \renewcommand\cftsecfont{\mdseries}
-\usepackage{hyperref}
-% \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % for sections, if you really want! (It is default in report and book class (So you may not need it).
+% Allow the contents entries to be clicked on
+\usepackage[hidelinks]{hyperref}
 
+% Use custom headers
 \usepackage{fancyhdr}
+\pagestyle{fancy}
 \fancyhf{} % clear all header and footers
 \renewcommand{\headrulewidth}{0pt} % remove the header rule
 
-\fancyhead[LO]{\smash{\raisebox{-0.5cm}{\makebox[-1cm][r]{\makebox[0pt][c]{\thepage}}}}} % Left side on Even pages
-\fancyhead[RE]{\smash{\raisebox{-0.5cm}{\makebox[-1cm][l]{\makebox[0pt][c]{\thepage}}}}} % Right side on Odd pages
+% Show the page number in the top outer corner
+\fancyhead[LO]{\smash{\raisebox{-0.5cm}{\makebox[-1cm][r]{\makebox[0pt][c]{\thepage}}}}} % Left side on even pages
+\fancyhead[RE]{\smash{\raisebox{-0.5cm}{\makebox[-1cm][l]{\makebox[0pt][c]{\thepage}}}}} % Right side on odd pages
 
-\pagestyle{fancy}
+% sections are level 1
+\setcounter{secnumdepth}{0}
 
-\setcounter{secnumdepth}{0} % sections are level 1
-
+% Render QR codes for 
 \usepackage{qrcode}
-
 \usepackage{graphicx}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% Fix the size of the verse text
 \newenvironment{xverse}{
 	\begin{verse}
 	\fontsize{8.5}{10.5}\selectfont
-	}
-	{
+}{
 	\end{verse}
-	\penalty 0
+}
 
-}\makeatletter
+% Define \chorusdef for marking the first occurrence of the chorus,
+% and \chorusmark for the subsequent occurrences.
+\makeatletter
 \newcommand{\chorusdef}{\textbf{\emph{Chorus:}}\\*}
 \setlength{\stanzaskip}{8.5pt}
 \newcommand{\chorus@mark}[1][1]{%
@@ -72,8 +88,11 @@
 \fi%
 }
 \makeatother
+
+% Define stage directions in gray
 \newcommand{\gray}[1]{\textcolor{gray}{#1}}
 
+% Define the title page
 \title{
 \centering
 \def\svgwidth{0.4\textwidth}
@@ -106,8 +125,7 @@ typesetting the songs.
 \subsection*{Music}
 \begin{center}
 
-Playlists for the songbook, for various streaming services. The QR codes are
-clickable if you have the pdf.
+Playlists for the songbook, for various streaming services. Click on/scan the QR codes to open them.
 
 \subsubsection*{Spotify}
 \quad
